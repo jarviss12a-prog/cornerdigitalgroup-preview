@@ -239,32 +239,130 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.07); 
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-/* ─── RESPONSIVE ─── */
+/* ─── HAMBURGER MENU ─── */
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 200; }
+.nav-hamburger span { display: block; width: 24px; height: 1.5px; background: white; transition: all 0.3s; }
+nav.scrolled .nav-hamburger span { background: var(--burgundy); }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; inset: 0; background: var(--burgundy); z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: white; text-decoration: none; letter-spacing: 2px; font-weight: 300; transition: color 0.2s; }
+.mobile-menu a:hover { color: var(--gold-lt); }
+.mobile-menu .mobile-book-btn { font-family: 'Jost', sans-serif; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; border: 1px solid var(--gold); color: var(--gold); padding: 14px 36px; margin-top: 12px; }
+
+/* ─── RESPONSIVE — TABLET ─── */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
+  /* hide cursor on touch */
+  .cursor, .cursor-ring { display: none; }
+
+  nav { padding: 0 20px; }
   .nav-center { display: none; }
-  .hero-content { padding: 0 30px; }
-  .hero-rating { right: 30px; }
+  .nav-book-btn { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .hero-content { padding: 0 24px; }
+  .hero h1 { font-size: clamp(2.8rem, 9vw, 4.5rem); }
+  .hero-sub { font-size: 0.92rem; }
+  .hero-rating { right: 24px; bottom: 80px; }
+  .hero-rating-num { font-size: 2.2rem; }
+
   .intro { grid-template-columns: 1fr; }
-  .intro-img { min-height: 360px; }
-  .services { padding: 80px 24px; }
+  .intro-img { min-height: 320px; }
+  .intro-text { padding: 52px 24px; }
+
+  .services { padding: 72px 20px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .services-top { flex-direction: column; align-items: flex-start; gap: 16px; }
   .services-top p { text-align: left; max-width: 100%; }
+
   .booking-feature { grid-template-columns: 1fr; }
-  .booking-left { padding: 64px 30px; }
-  .gallery { padding: 80px 24px; }
+  .booking-left { padding: 60px 24px; }
+  .booking-right { min-height: 320px; }
+
+  .gallery { padding: 72px 20px; }
   .gallery-masonry { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
   .g-large { grid-column: span 2; }
   .g-tall { grid-row: span 1; }
-  .reviews-section { padding: 80px 24px; }
+
+  .reviews-section { padding: 72px 20px; }
   .reviews-header { flex-direction: column; align-items: flex-start; gap: 24px; }
   .reviews-grid { grid-template-columns: 1fr; }
+
   .hours-section { grid-template-columns: 1fr; }
   .hours-left { padding: 60px 24px; }
-  .footer-main { grid-template-columns: 1fr 1fr; padding: 60px 24px 40px; }
-  .footer-bottom { padding: 16px 24px 24px; flex-direction: column; gap: 8px; text-align: center; }
-  .intro-text { padding: 60px 30px; }
+
+  .footer-main { grid-template-columns: 1fr 1fr; padding: 56px 20px 36px; gap: 36px; }
+  .footer-bottom { padding: 16px 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+
+  .float-btn { bottom: 20px; right: 16px; padding: 12px 20px; font-size: 0.68rem; }
+}
+
+/* ─── RESPONSIVE — IPHONE ─── */
+@media (max-width: 480px) {
+  nav { height: 64px; padding: 0 18px; }
+  nav.scrolled { height: 56px; }
+  .nav-logo { font-size: 1.1rem; letter-spacing: 2px; }
+
+  /* hero */
+  .hero { padding-bottom: 72px; min-height: 100svh; }
+  .hero-content { padding: 0 20px; }
+  .hero-tag { margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.4rem, 11vw, 3.2rem); margin-bottom: 18px; }
+  .hero-sub { font-size: 0.88rem; max-width: 100%; margin-bottom: 28px; }
+  .btn-hero { padding: 14px 28px; font-size: 0.7rem; width: 100%; text-align: center; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; }
+  .btn-ghost { font-size: 0.7rem; }
+
+  /* hide rating on very small screens — too cramped */
+  .hero-rating { display: none; }
+
+  /* intro */
+  .intro-img { min-height: 260px; }
+  .intro-img-badge { padding: 14px 18px; }
+  .intro-img-badge strong { font-size: 1.5rem; }
+  .intro-text { padding: 40px 20px; }
+  .section-h2 { font-size: clamp(1.7rem, 6vw, 2.2rem); }
+
+  /* services — single column on phone */
+  .services { padding: 56px 16px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 28px 20px; }
+  .svc-num { font-size: 2rem; margin-bottom: 12px; }
+
+  /* booking */
+  .booking-left { padding: 48px 20px; }
+  .booking-right { min-height: 240px; }
+  .steps { gap: 20px; margin: 28px 0; }
+  .btn-gold { padding: 14px 28px; font-size: 0.7rem; width: 100%; text-align: center; display: block; }
+
+  /* gallery */
+  .gallery { padding: 56px 16px; }
+  .gallery-masonry { grid-template-columns: 1fr; }
+  .g-large { grid-column: span 1; }
+  .g-item { height: 220px; }
+
+  /* reviews */
+  .reviews-section { padding: 56px 16px; }
+  .rating-num { font-size: 3.8rem; }
+  .review-card { padding: 28px 20px; }
+  .review-text { font-size: 1rem; }
+
+  /* hours */
+  .hours-left { padding: 48px 20px; }
+  .hours-row { font-size: 0.85rem; padding: 12px 0; }
+
+  /* footer */
+  .footer-main { grid-template-columns: 1fr; padding: 48px 20px 32px; gap: 32px; }
+  .footer-desc { max-width: 100%; }
+  .footer-bottom { padding: 14px 20px 28px; }
+
+  /* float btn — full width on phone */
+  .float-btn { bottom: 16px; right: 16px; left: 16px; justify-content: center; padding: 14px 20px; font-size: 0.72rem; border-radius: 0; }
+
+  /* marquee text smaller */
+  .marquee-item { font-size: 0.85rem; padding: 0 24px; }
 }
 </style>
 </head>
@@ -285,6 +383,16 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.07); 
   <span class="dot"></span> Book Appointment
 </a>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#gallery" class="mobile-nav-link">Gallery</a>
+  <a href="#reviews" class="mobile-nav-link">Reviews</a>
+  <a href="#location" class="mobile-nav-link">Visit</a>
+  <a href="https://booksy.com/en-us/781190_red-jasper-nails_nail-salon_18229_chicago" target="_blank" class="mobile-book-btn mobile-nav-link">Book Now</a>
+</div>
+
 <!-- NAV -->
 <nav id="mainNav">
   <a href="#" class="nav-logo">Red Jasper <em>Nails</em></a>
@@ -296,6 +404,9 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.07); 
     <li><a href="#location">Visit</a></li>
   </ul>
   <a href="https://booksy.com/en-us/781190_red-jasper-nails_nail-salon_18229_chicago" target="_blank" class="nav-book-btn">Book Now</a>
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -634,6 +745,20 @@ const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Satur
 const today = days[new Date().getDay()];
 document.querySelectorAll('.hours-row').forEach(row => {
   if (row.dataset.day === today) row.classList.add('today-row');
+});
+
+// ─── HAMBURGER ───
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
 });
 
 // ─── SCROLL REVEAL ───
