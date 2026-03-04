@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura Nail Studio — Chicago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ivory: #f9f6f0;
+    --sage: #b5bfaa;
+    --sage-light: #dde3d8;
+    --dusty-rose: #c9a99a;
+    --rose-light: #ecddd9;
+    --charcoal: #3a3530;
+    --mid: #7a726a;
+    --white: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--ivory); color: var(--charcoal); font-weight: 300; line-height: 1.7; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background: rgba(249,246,240,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(181,191,170,0.3);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(58,53,48,0.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 500; letter-spacing: 0.08em; color: var(--charcoal); text-decoration: none; }
+  .nav-phone { font-size: 0.82rem; letter-spacing: 0.1em; color: var(--mid); display: none; }
+  @media(min-width:768px){ .nav-phone { display: block; } }
+  .nav-cta {
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.6rem 1.4rem; border: 1px solid var(--charcoal); color: var(--charcoal);
+    text-decoration: none; transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--charcoal); color: var(--ivory); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    background: linear-gradient(160deg, var(--ivory) 0%, var(--rose-light) 50%, var(--sage-light) 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(201,169,154,0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(181,191,170,0.25) 0%, transparent 55%);
+  }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--dusty-rose); margin-bottom: 1.5rem; position: relative; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; position: relative; color: var(--charcoal); }
+  .hero h1 em { font-style: italic; color: var(--dusty-rose); }
+  .hero-sub { font-size: 1rem; color: var(--mid); max-width: 420px; margin: 0 auto 3rem; position: relative; font-weight: 300; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; }
+  .btn-primary {
+    padding: 0.9rem 2.2rem; background: var(--charcoal); color: var(--ivory);
+    text-decoration: none; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--dusty-rose); }
+  .btn-secondary {
+    padding: 0.9rem 2.2rem; border: 1px solid var(--charcoal); color: var(--charcoal);
+    text-decoration: none; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s;
+  }
+  .btn-secondary:hover { background: var(--charcoal); color: var(--ivory); }
+
+  /* SECTIONS */
+  section { padding: 5rem 1.5rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dusty-rose); margin-bottom: 1rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--charcoal); margin-bottom: 1.5rem; }
+  .section-title em { font-style: italic; }
+  .divider { width: 40px; height: 1px; background: var(--dusty-rose); margin-bottom: 3rem; }
+
+  /* SERVICES */
+  .services { background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+  .service-card {
+    padding: 2.5rem 2rem; background: var(--ivory); transition: background 0.3s;
+    border-left: 2px solid transparent;
+  }
+  .service-card:hover { background: var(--rose-light); border-left-color: var(--dusty-rose); }
+  .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .service-desc { font-size: 0.88rem; color: var(--mid); margin-bottom: 1.2rem; line-height: 1.6; }
+  .service-price { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dusty-rose); }
+
+  /* ABOUT */
+  .about { background: var(--sage-light); }
+  .about-inner { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+  @media(min-width:768px){ .about-inner { grid-template-columns: 1fr 1fr; } }
+  .about-image {
+    aspect-ratio: 4/5; background: linear-gradient(135deg, var(--sage) 0%, var(--dusty-rose) 100%);
+    border-radius: 2px;
+  }
+  .about-text p { color: var(--mid); margin-bottom: 1.2rem; font-size: 0.95rem; }
+  .about-text a { color: var(--dusty-rose); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; border-bottom: 1px solid var(--dusty-rose); padding-bottom: 2px; }
+
+  /* HOURS */
+  .hours { background: var(--charcoal); color: var(--ivory); }
+  .hours .section-label { color: var(--sage); }
+  .hours .section-title { color: var(--ivory); }
+  .hours .divider { background: var(--sage); }
+  .hours-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+  @media(min-width:768px){ .hours-grid { grid-template-columns: 1fr 1fr; } }
+  .hours-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+  .hours-row:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+  .location-info p { font-size: 0.9rem; color: rgba(249,246,240,0.7); margin-bottom: 0.6rem; }
+  .location-info a { color: var(--sage); text-decoration: none; }
+  .map-placeholder { margin-top: 1.5rem; height: 160px; background: linear-gradient(135deg, rgba(181,191,170,0.3), rgba(201,169,154,0.3)); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* FOOTER */
+  footer { background: #2a2520; color: rgba(249,246,240,0.5); text-align: center; padding: 2rem 1.5rem; font-size: 0.78rem; letter-spacing: 0.08em; }
+  footer a { color: var(--dusty-rose); text-decoration: none; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--ivory); margin-bottom: 1rem; display: block; }
+
+  /* FLOATING BTN */
+  .float-btn {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 99;
+    padding: 0.85rem 1.5rem; background: var(--charcoal); color: var(--ivory);
+    text-decoration: none; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    opacity: 0; transform: translateY(10px); transition: all 0.4s; pointer-events: none;
+    box-shadow: 0 4px 20px rgba(58,53,48,0.2);
+  }
+  .float-btn.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+  .float-btn:hover { background: var(--dusty-rose); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">Aura Nail Studio</a>
+  <span class="nav-phone">(312) 555-0100</span>
+  <a href="#" class="nav-cta">Book Now</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Chicago's Premier Nail Sanctuary</p>
+  <h1>Where Beauty <em>Meets</em><br>Serenity</h1>
+  <p class="hero-sub">A calm, unhurried space for nails that feel as good as they look. Thoughtfully crafted for the discerning client.</p>
+  <div class="hero-btns">
+    <a href="#" class="btn-primary">Book Your Visit</a>
+    <a href="#services" class="btn-secondary">Our Services</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Curated <em>Services</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-name">Manicure</div>
+        <p class="service-desc">A refined ritual for beautiful hands — shaping, cuticle care, and a flawless finish tailored to you.</p>
+        <div class="service-price">From $25</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">Pedicure</div>
+        <p class="service-desc">Indulge in a full foot treatment with exfoliation, massage, and a pristine polish that lasts.</p>
+        <div class="service-price">From $40</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">Gel Nails</div>
+        <p class="service-desc">Long-lasting, chip-resistant colour with a luminous, salon-fresh finish. Stays perfect for weeks.</p>
+        <div class="service-price">From $45</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">Acrylic Nails</div>
+        <p class="service-desc">Sculpted extensions built for strength and elegance, shaped precisely to your preference.</p>
+        <div class="service-price">From $55</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">Nail Art</div>
+        <p class="service-desc">Delicate designs, minimalist patterns, and bespoke detailing by our skilled nail artisans.</p>
+        <div class="service-price">From $15</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">Waxing</div>
+        <p class="service-desc">Smooth, clean results using gentle, skin-kind waxes. Quick, precise, and comfortable.</p>
+        <div class="service-price">From $12</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-image reveal"></div>
+      <div class="about-text reveal">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">A Studio <em>Designed</em> for You</h2>
+        <div class="divider"></div>
+        <p>Aura Nail Studio was born from a belief that nail care should be a genuine retreat — not just a quick errand. We designed every corner of our space to feel calm, unhurried, and beautiful.</p>
+        <p>Our team of skilled technicians combines traditional technique with a modern aesthetic eye, delivering results that feel effortlessly refined. Every appointment is a quiet moment that's entirely yours.</p>
+        <a href="#">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Find Us</p>
+      <h2 class="section-title">Hours & <em>Location</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="hours-grid">
+      <div class="reveal">
+        <div class="hours-row"><span>Monday – Friday</span><span>9:00 am – 7:00 pm</span></div>
+        <div class="hours-row"><span>Saturday</span><span>9:00 am – 7:00 pm</span></div>
+        <div class="hours-row"><span>Sunday</span><span>10:00 am – 5:00 pm</span></div>
+        <div class="hours-row"><span>Holidays</span><span>Call ahead</span></div>
+      </div>
+      <div class="location-info reveal">
+        <p>123 Main Street<br>Chicago, IL 60601</p>
+        <p><a href="tel:3125550100">(312) 555-0100</a></p>
+        <div class="map-placeholder">Map Placeholder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Aura Nail Studio</span>
+  <p>123 Main Street, Chicago, IL 60601 &nbsp;·&nbsp; <a href="tel:3125550100">(312) 555-0100</a></p>
+  <p style="margin-top:1rem;">© 2025 Aura Nail Studio. All rights reserved. &nbsp;·&nbsp; Demo site by <a href="#">Corner Digital Group</a></p>
+</footer>
+
+<a href="#" class="float-btn" id="floatBtn">Book Now</a>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Float button
+  const floatBtn = document.getElementById('floatBtn');
+  window.addEventListener('scroll', () => {
+    floatBtn.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

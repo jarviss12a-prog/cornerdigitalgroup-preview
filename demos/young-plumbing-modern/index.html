@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Young Plumbing Corporation – Professional Plumbing Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #0f766e;
+    --teal-light: #14b8a6;
+    --slate: #1e293b;
+    --slate-mid: #475569;
+    --slate-light: #94a3b8;
+    --bg: #f8fafc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --shadow: 0 4px 24px rgba(15,118,110,0.08);
+    --shadow-card: 0 2px 16px rgba(30,41,59,0.06);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--slate); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 1.25rem; height: 64px;
+  }
+  .nav-logo { font-weight: 700; font-size: 1rem; color: var(--teal); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+  .nav-logo-icon { background: var(--teal); color: white; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+  .nav-phone { display: none; font-size: 0.9rem; font-weight: 600; color: var(--slate); }
+  .nav-cta {
+    background: var(--teal); color: white; font-size: 0.85rem; font-weight: 600;
+    padding: 0.5rem 1.1rem; border-radius: 8px; text-decoration: none; white-space: nowrap;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: #0d6560; }
+  @media(min-width:768px){ .nav-phone { display: block; } nav { padding: 0 2.5rem; } }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 60%, #f8fafc 100%);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 1.5rem 3rem;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(15,118,110,0.08); border: 1px solid rgba(15,118,110,0.2);
+    color: var(--teal); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.5px;
+    padding: 0.4rem 0.85rem; border-radius: 100px; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 3.75rem); font-weight: 700; line-height: 1.15;
+    color: var(--slate); margin-bottom: 1.25rem; letter-spacing: -0.5px;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero p { font-size: 1.1rem; color: var(--slate-mid); max-width: 520px; line-height: 1.7; margin-bottom: 2.25rem; font-weight: 400; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem; }
+  .btn-primary {
+    background: var(--teal); color: white; font-size: 0.95rem; font-weight: 600;
+    padding: 0.85rem 1.75rem; border-radius: 10px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem; transition: all .2s;
+    box-shadow: 0 4px 16px rgba(15,118,110,0.25);
+  }
+  .btn-primary:hover { background: #0d6560; transform: translateY(-1px); }
+  .btn-secondary {
+    background: white; color: var(--slate); font-size: 0.95rem; font-weight: 600;
+    padding: 0.85rem 1.75rem; border-radius: 10px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem; transition: all .2s;
+    border: 1.5px solid var(--border); box-shadow: var(--shadow-card);
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .pill {
+    background: white; border: 1px solid var(--border); border-radius: 100px;
+    padding: 0.4rem 0.9rem; font-size: 0.8rem; font-weight: 500; color: var(--slate-mid);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* SECTION */
+  section { padding: 4.5rem 1.5rem; }
+  @media(min-width:768px){ section { padding: 6rem 2.5rem; } }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; background: rgba(15,118,110,0.08); color: var(--teal);
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 0.3rem 0.8rem; border-radius: 6px; margin-bottom: 0.75rem;
+  }
+  h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: var(--slate); line-height: 1.2; letter-spacing: -0.3px; margin-bottom: 0.75rem; }
+  .section-sub { font-size: 1rem; color: var(--slate-mid); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; }
+
+  /* SERVICES */
+  .services-bg { background: white; }
+  .services-grid {
+    display: grid; grid-template-columns: 1fr; gap: 1.25rem;
+  }
+  @media(min-width:600px){ .services-grid { grid-template-columns: repeat(2,1fr); } }
+  @media(min-width:900px){ .services-grid { grid-template-columns: repeat(3,1fr); } }
+  .service-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.75rem; transition: all .2s;
+  }
+  .service-card:hover { box-shadow: var(--shadow); border-color: rgba(15,118,110,0.25); transform: translateY(-2px); }
+  .service-icon-wrap {
+    width: 48px; height: 48px; background: rgba(15,118,110,0.08);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 1rem;
+  }
+  .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--slate); margin-bottom: 0.4rem; }
+  .service-card p { font-size: 0.88rem; color: var(--slate-mid); line-height: 1.65; }
+
+  /* TRUST */
+  .trust-bg { background: var(--slate); color: white; }
+  .trust-bg h2, .trust-bg .section-tag { color: white; }
+  .trust-bg .section-tag { background: rgba(255,255,255,0.1); }
+  .trust-bg .section-sub { color: var(--slate-light); }
+  .trust-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+  }
+  @media(min-width:768px){ .trust-grid { grid-template-columns: repeat(4,1fr); } }
+  .trust-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 1.5rem; text-align: center;
+  }
+  .trust-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .trust-card h3 { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.25rem; }
+  .trust-card p { font-size: 0.82rem; color: var(--slate-light); line-height: 1.5; }
+
+  /* TESTIMONIALS */
+  .testimonials-bg { background: white; }
+  .testimonials-grid {
+    display: grid; grid-template-columns: 1fr; gap: 1.25rem;
+  }
+  @media(min-width:768px){ .testimonials-grid { grid-template-columns: repeat(3,1fr); } }
+  .testimonial {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem;
+  }
+  .stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+  .testimonial p { font-size: 0.9rem; color: var(--slate-mid); line-height: 1.75; margin-bottom: 1.25rem; }
+  .reviewer-info { display: flex; align-items: center; gap: 0.75rem; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; }
+  .reviewer-name { font-size: 0.88rem; font-weight: 700; color: var(--slate); }
+  .reviewer-loc { font-size: 0.78rem; color: var(--slate-light); }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--teal) 0%, #0d9488 100%);
+    color: white; text-align: center; padding: 5rem 1.5rem;
+  }
+  .cta-section h2 { color: white; font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 0.75rem; }
+  .cta-section p { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 2rem; line-height: 1.7; }
+  .btn-white {
+    background: white; color: var(--teal); font-size: 0.95rem; font-weight: 700;
+    padding: 0.9rem 1.75rem; border-radius: 10px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem; margin: 0.35rem;
+    transition: all .2s; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .btn-white:hover { transform: translateY(-2px); }
+  .btn-white-outline {
+    background: transparent; color: white; border: 2px solid rgba(255,255,255,0.6);
+    font-size: 0.95rem; font-weight: 600; padding: 0.9rem 1.75rem; border-radius: 10px;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin: 0.35rem;
+    transition: all .2s;
+  }
+  .btn-white-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem;
+  }
+  @media(min-width:768px){ .contact-grid { grid-template-columns: repeat(3,1fr); } }
+  .contact-card {
+    background: white; border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.5rem; box-shadow: var(--shadow-card);
+  }
+  .contact-card h3 { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); margin-bottom: 0.5rem; }
+  .contact-card p, .contact-card a { font-size: 0.95rem; color: var(--slate); text-decoration: none; line-height: 1.6; }
+
+  /* FOOTER */
+  footer {
+    background: var(--slate); color: var(--slate-light); padding: 2.5rem 1.5rem; text-align: center;
+  }
+  .footer-logo { font-weight: 700; color: white; font-size: 1rem; margin-bottom: 0.5rem; }
+  footer p { font-size: 0.8rem; line-height: 1.7; }
+  footer a { color: var(--teal-light); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🔧</div>
+    Young Plumbing
+  </a>
+  <span class="nav-phone">📞 (312) 555-0200</span>
+  <a href="#quote" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">✓ Licensed &amp; Insured · Serving Chicago Since 2005</div>
+    <h1>Professional Plumbing<br><span>You Can Count On</span></h1>
+    <p>Chicago's trusted plumbing specialists. Fast response, upfront pricing, and guaranteed satisfaction — every single job.</p>
+    <div class="hero-btns">
+      <a href="tel:3125550200" class="btn-primary">📞 Call Now</a>
+      <a href="#quote" class="btn-secondary">Get Free Estimate →</a>
+    </div>
+    <div class="hero-pills">
+      <span class="pill">⚡ 24/7 Emergency</span>
+      <span class="pill">✓ Free Estimates</span>
+      <span class="pill">🏅 Licensed & Insured</span>
+      <span class="pill">⭐ 20+ Years Experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-bg">
+  <div class="container">
+    <div class="section-tag">Services</div>
+    <h2>Everything Plumbing,<br>Done Right</h2>
+    <p class="section-sub">From routine maintenance to emergency repairs, our certified plumbers handle it all with precision and care.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon-wrap">🚿</div>
+        <h3>Drain Cleaning</h3>
+        <p>High-pressure drain cleaning that clears blockages completely. No temporary fixes, just real solutions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🔥</div>
+        <h3>Water Heater Install/Repair</h3>
+        <p>Expert installation and repair for tank and tankless water heaters. Restore hot water fast.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🔍</div>
+        <h3>Leak Detection & Repair</h3>
+        <p>State-of-the-art leak detection technology locates hidden leaks quickly, minimizing damage.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🏗️</div>
+        <h3>Sewer Line Services</h3>
+        <p>Camera inspection, hydro jetting, and complete sewer line replacement when needed.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🔧</div>
+        <h3>Fixture Installation</h3>
+        <p>From faucets to full bathroom renovations — installed cleanly and built to last.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">🚨</div>
+        <h3>Emergency Plumbing</h3>
+        <p>Available 24/7, 365 days a year. We respond within the hour for true emergencies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-bg">
+  <div class="container">
+    <div class="section-tag">Why Us</div>
+    <h2>Built on a Foundation<br>of Trust</h2>
+    <p class="section-sub">We don't just fix pipes — we build lasting relationships with Chicago homeowners and businesses.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🏅</div>
+        <h3>Licensed & Insured</h3>
+        <p>Fully licensed in Illinois. Every job is fully insured for your peace of mind.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">⏰</div>
+        <h3>24/7 Emergency Service</h3>
+        <p>Plumbing disasters don't keep business hours. Neither do we.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">💬</div>
+        <h3>Satisfaction Guaranteed</h3>
+        <p>We stand behind every job. If you're not happy, we make it right.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">💰</div>
+        <h3>Free Estimates</h3>
+        <p>Transparent, upfront pricing. No hidden fees, no surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg">
+  <div class="container">
+    <div class="section-tag">Reviews</div>
+    <h2>What Our Customers Say</h2>
+    <p class="section-sub">Don't take our word for it — hear from homeowners across Chicago.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Young Plumbing replaced my water heater same-day when it went out. The technician was on time, explained everything clearly, and the price matched the quote exactly."</p>
+        <div class="reviewer-info">
+          <div class="avatar">JL</div>
+          <div>
+            <div class="reviewer-name">Jennifer L.</div>
+            <div class="reviewer-loc">Lincoln Park, Chicago</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Had a mysterious leak that other plumbers couldn't find. Young Plumbing used their camera tech and had it fixed in two hours. Absolutely worth it."</p>
+        <div class="reviewer-info">
+          <div class="avatar">RP</div>
+          <div>
+            <div class="reviewer-name">Robert P.</div>
+            <div class="reviewer-loc">Old Town, Chicago</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"I've used them three times now for my condo. Every experience has been seamless. Professional, fast, and always reasonably priced. My go-to plumber in Chicago."</p>
+        <div class="reviewer-info">
+          <div class="avatar">AM</div>
+          <div>
+            <div class="reviewer-name">Aisha M.</div>
+            <div class="reviewer-loc">River North, Chicago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="quote">
+  <h2>Ready to Get Started?</h2>
+  <p>Join thousands of satisfied Chicago customers. Fast, professional, and guaranteed.</p>
+  <div>
+    <a href="tel:3125550200" class="btn-white">📞 (312) 555-0200</a>
+    <a href="#" class="btn-white-outline">Free Estimate →</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="container">
+    <div class="section-tag">Contact</div>
+    <h2>Get In Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>📞 Phone</h3>
+        <a href="tel:3125550200">(312) 555-0200</a>
+        <p style="margin-top:0.25rem;font-size:0.8rem;color:#94a3b8;">24/7 Emergency Line</p>
+      </div>
+      <div class="contact-card">
+        <h3>📍 Address</h3>
+        <p>456 Oak Street<br>Chicago, IL 60601</p>
+      </div>
+      <div class="contact-card">
+        <h3>🕐 Hours</h3>
+        <p>Mon–Fri: 7:00am – 6:00pm<br>Emergency: 24/7</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Young Plumbing Corporation</div>
+  <p>Licensed & Insured · Free Estimates · Satisfaction Guaranteed</p>
+  <p>456 Oak Street, Chicago, IL 60601 · <a href="tel:3125550200">(312) 555-0200</a></p>
+  <p style="margin-top:1rem;opacity:0.6;">© 2025 Young Plumbing Corporation. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

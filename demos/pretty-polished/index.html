@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pretty Polished — Nail Bar Chicago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --pink: #ff6eb4;
+    --pink-light: #ffe4f3;
+    --purple: #9b5de5;
+    --purple-light: #ede0ff;
+    --yellow: #fee440;
+    --yellow-light: #fffbe6;
+    --teal: #00bbf9;
+    --white: #ffffff;
+    --dark: #2d1b3d;
+    --mid: #6b5b7b;
+    --bg: #fff9fe;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: rgba(255,249,254,0.93); backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--pink-light);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 20px rgba(155,93,229,0.12); }
+  .nav-logo {
+    font-size: 1.4rem; font-weight: 900; color: var(--purple); text-decoration: none;
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .nav-phone { font-size: 0.85rem; font-weight: 600; color: var(--mid); display: none; }
+  @media(min-width:768px){ .nav-phone { display: block; } }
+  .nav-cta {
+    padding: 0.6rem 1.3rem; background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white; text-decoration: none; border-radius: 50px; font-size: 0.85rem; font-weight: 800;
+    transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 14px rgba(255,110,180,0.4);
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,110,180,0.5); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 1.5rem 4rem;
+    background: linear-gradient(135deg, var(--pink-light) 0%, var(--purple-light) 50%, var(--yellow-light) 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '✨'; position: absolute; top: 15%; left: 8%; font-size: 2.5rem; opacity: 0.4; animation: float 4s ease-in-out infinite;
+  }
+  .hero::after {
+    content: '💅'; position: absolute; bottom: 20%; right: 10%; font-size: 3rem; opacity: 0.5; animation: float 5s ease-in-out infinite reverse;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+  .hero-badge {
+    display: inline-block; background: var(--yellow); color: var(--dark); padding: 0.3rem 1rem;
+    border-radius: 50px; font-size: 0.8rem; font-weight: 800; margin-bottom: 1.5rem;
+    letter-spacing: 0.05em; transform: rotate(-2deg);
+  }
+  .hero h1 { font-size: clamp(2.8rem, 9vw, 5.5rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.2rem; }
+  .hero h1 span { background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 1.05rem; color: var(--mid); max-width: 440px; margin: 0 auto 2.5rem; font-weight: 600; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary {
+    padding: 1rem 2rem; background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 6px 20px rgba(155,93,229,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(155,93,229,0.45); }
+  .btn-secondary {
+    padding: 1rem 2rem; background: white; color: var(--purple);
+    text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.95rem;
+    border: 2px solid var(--purple); transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--purple); color: white; }
+
+  /* SECTIONS */
+  section { padding: 5rem 1.5rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-badge { display: inline-block; background: var(--yellow); color: var(--dark); padding: 0.25rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 800; margin-bottom: 0.8rem; letter-spacing: 0.05em; }
+  .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: var(--dark); margin-bottom: 1rem; }
+  .section-title span { background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  /* SERVICES */
+  .services { background: white; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .service-card {
+    padding: 2rem; border-radius: 20px; transition: transform 0.25s, box-shadow 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:nth-child(1) { background: var(--pink-light); }
+  .service-card:nth-child(2) { background: var(--purple-light); }
+  .service-card:nth-child(3) { background: var(--yellow-light); }
+  .service-card:nth-child(4) { background: #e0f7ff; }
+  .service-card:nth-child(5) { background: #ffeef8; }
+  .service-card:nth-child(6) { background: #f0ffe8; }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(155,93,229,0.15); }
+  .service-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+  .service-name { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--dark); }
+  .service-desc { font-size: 0.88rem; color: var(--mid); margin-bottom: 1rem; line-height: 1.5; }
+  .service-price { font-size: 1.1rem; font-weight: 900; color: var(--purple); }
+
+  /* ABOUT */
+  .about { background: var(--purple-light); }
+  .about-inner { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+  @media(min-width:768px){ .about-inner { grid-template-columns: 1fr 1fr; } }
+  .about-image {
+    aspect-ratio: 1/1; border-radius: 30px;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 50%, var(--teal) 100%);
+    display: flex; align-items: center; justify-content: center; font-size: 6rem;
+  }
+  .about-text p { color: var(--mid); margin-bottom: 1rem; font-size: 0.95rem; font-weight: 600; }
+  .about-text a {
+    display: inline-block; padding: 0.75rem 1.8rem; background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.9rem;
+    box-shadow: 0 4px 16px rgba(155,93,229,0.3); transition: transform 0.2s;
+  }
+  .about-text a:hover { transform: translateY(-2px); }
+
+  /* HOURS */
+  .hours { background: var(--dark); color: white; }
+  .hours .section-badge { background: var(--pink); }
+  .hours-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2.5rem; }
+  @media(min-width:768px){ .hours-grid { grid-template-columns: 1fr 1fr; } }
+  .hours-card { background: rgba(255,255,255,0.06); border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); }
+  .hours-card-title { font-size: 0.85rem; font-weight: 800; color: var(--yellow); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+  .hours-row { display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .hours-row:last-child { border-bottom: none; }
+  .location-info { padding: 1.5rem; background: rgba(255,255,255,0.06); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); }
+  .location-info p { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 0.5rem; font-weight: 600; }
+  .location-info a { color: var(--pink); text-decoration: none; font-weight: 700; }
+  .map-placeholder { margin-top: 1rem; height: 140px; background: rgba(255,255,255,0.04); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; }
+
+  /* FOOTER */
+  footer { background: #1a0f28; color: rgba(255,255,255,0.5); text-align: center; padding: 2rem 1.5rem; font-size: 0.85rem; font-weight: 600; }
+  footer a { color: var(--pink); text-decoration: none; }
+  .footer-logo { display: block; font-size: 1.6rem; font-weight: 900; margin-bottom: 0.8rem; background: linear-gradient(90deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  /* FLOATING BTN */
+  .float-btn {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99;
+    padding: 0.9rem 1.6rem; background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.85rem;
+    opacity: 0; transform: translateY(10px) scale(0.9); transition: all 0.4s;
+    pointer-events: none; box-shadow: 0 6px 24px rgba(255,110,180,0.5);
+  }
+  .float-btn.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+  .float-btn:hover { transform: scale(1.05) translateY(-2px) !important; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">Pretty Polished 💅</a>
+  <span class="nav-phone">(312) 555-0100</span>
+  <a href="#" class="nav-cta">Book Now ✨</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">✨ Chicago's Fave Nail Bar</div>
+  <h1>Nails That <span>Make You</span><br>Smile 💅</h1>
+  <p class="hero-sub">Fun, fresh, and totally obsession-worthy nails. Come in looking cute, leave looking cuter.</p>
+  <div class="hero-btns">
+    <a href="#" class="btn-primary">Book My Appointment 🎉</a>
+    <a href="#services" class="btn-secondary">See Services</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-badge">💅 What We Do</div>
+      <h2 class="section-title">All the <span>Good Stuff</span></h2>
+      <p style="color:var(--mid);max-width:480px;margin:0.5rem auto 0;font-weight:600;">Affordable prices, insane quality, major vibes.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-emoji">💅</span>
+        <div class="service-name">Manicure</div>
+        <p class="service-desc">Shape, buff, polish — looking cute in no time. Classic or with a twist!</p>
+        <div class="service-price">From $25</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🦶</span>
+        <div class="service-name">Pedicure</div>
+        <p class="service-desc">Happy feet, happy life. Full pampering treatment with massage & polish.</p>
+        <div class="service-price">From $40</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">✨</span>
+        <div class="service-name">Gel Nails</div>
+        <p class="service-desc">Chip-proof colour that stays gorgeous for weeks. Worth it every time!</p>
+        <div class="service-price">From $45</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🦋</span>
+        <div class="service-name">Acrylic Nails</div>
+        <p class="service-desc">Get the length and strength you want. Customized to your vibe.</p>
+        <div class="service-price">From $55</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🎨</span>
+        <div class="service-name">Nail Art</div>
+        <p class="service-desc">Florals, glitter, chrome, abstract — your nails, your canvas!</p>
+        <div class="service-price">From $15</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-emoji">🌸</span>
+        <div class="service-name">Waxing</div>
+        <p class="service-desc">Smooth skin, no drama. Quick and gentle waxing services.</p>
+        <div class="service-price">From $12</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-image reveal">💅</div>
+      <div class="about-text reveal">
+        <div class="section-badge">💜 Our Story</div>
+        <h2 class="section-title">We're Not Just <span>a Nail Bar</span></h2>
+        <p>We're the crew that makes you feel amazing every single time. Pretty Polished was built for the girl who wants great nails without the pretension — just good vibes, great results, and staff who genuinely care.</p>
+        <p>Serving Chicago since day one, we're always up on the latest trends and techniques. Your nails? They're in good hands (literally).</p>
+        <a href="#">Book Your Spot →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:0;">
+      <div class="section-badge">📍 Find Us</div>
+      <h2 class="section-title" style="color:white;">Hours & <span>Location</span></h2>
+    </div>
+    <div class="hours-grid">
+      <div class="hours-card reveal">
+        <div class="hours-card-title">⏰ Hours</div>
+        <div class="hours-row"><span>Monday – Friday</span><span>9am – 7pm</span></div>
+        <div class="hours-row"><span>Saturday</span><span>9am – 7pm</span></div>
+        <div class="hours-row"><span>Sunday</span><span>10am – 5pm</span></div>
+        <div class="hours-row"><span>Holidays</span><span>Call ahead 📞</span></div>
+      </div>
+      <div class="location-info reveal">
+        <div class="hours-card-title">📍 Location</div>
+        <p>123 Main Street<br>Chicago, IL 60601</p>
+        <p><a href="tel:3125550100">(312) 555-0100</a></p>
+        <div class="map-placeholder">📍 Map Placeholder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Pretty Polished 💅</span>
+  <p>123 Main Street, Chicago, IL 60601 &nbsp;·&nbsp; <a href="tel:3125550100">(312) 555-0100</a></p>
+  <p style="margin-top:0.8rem;">© 2025 Pretty Polished. Made with 💜 · Demo by <a href="#">Corner Digital Group</a></p>
+</footer>
+
+<a href="#" class="float-btn" id="floatBtn">Book Now 💅</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const floatBtn = document.getElementById('floatBtn');
+  window.addEventListener('scroll', () => floatBtn.classList.toggle('visible', window.scrollY > 300));
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

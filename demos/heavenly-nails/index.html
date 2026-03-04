@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heavenly Nails & Spa — Glenview, IL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAFAF5;
+    --rose: #C4849A;
+    --gold: #B8966E;
+    --text: #2C2C2C;
+    --text-light: #6B6B6B;
+    --white: #fff;
+    --nav-h: 70px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(250,250,245,0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(196,132,154,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .nav-logo span { display: block; font-size: 0.7rem; font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
+
+  .nav-phone { display: none; font-size: 0.9rem; color: var(--text-light); font-weight: 500; }
+
+  .nav-cta {
+    background: var(--rose);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #f5ede8 0%, #fafaf5 50%, #f0e8ed 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(var(--nav-h) + 40px) 20px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '✦';
+    position: absolute;
+    top: 15%; left: 8%;
+    font-size: 1.5rem;
+    color: rgba(196,132,154,0.2);
+    animation: float 6s ease-in-out infinite;
+  }
+  #hero::after {
+    content: '✦';
+    position: absolute;
+    bottom: 20%; right: 10%;
+    font-size: 1rem;
+    color: rgba(184,150,110,0.25);
+    animation: float 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  .hero-inner { max-width: 700px; }
+
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+
+  .hero-title em { color: var(--rose); font-style: italic; }
+
+  .hero-tagline {
+    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+    color: var(--text-light);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--rose);
+    color: var(--white);
+    padding: 14px 32px;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1.5px solid var(--rose);
+    color: var(--rose);
+    padding: 14px 32px;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: all 0.3s;
+    background: transparent;
+  }
+  .btn-outline:hover { background: var(--rose); color: var(--white); transform: translateY(-2px); }
+
+  /* ── SECTIONS ── */
+  section { padding: 70px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 500; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text); margin-bottom: 16px; line-height: 1.2; }
+  .section-sub { color: var(--text-light); max-width: 520px; font-weight: 300; font-size: 1rem; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--white); }
+
+  .services-header { text-align: center; margin-bottom: 50px; }
+  .services-header .section-sub { margin: 0 auto; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 28px 24px;
+    border-radius: 4px;
+    border-left: 3px solid var(--rose);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(196,132,154,0.12); }
+
+  .service-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .service-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .service-desc { font-size: 0.88rem; color: var(--text-light); font-weight: 300; line-height: 1.6; }
+
+  /* ── FEATURES ── */
+  #features { background: linear-gradient(135deg, #f5ede8 0%, #faf5f7 100%); }
+
+  .features-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px; }
+  .feature-item { display: flex; align-items: flex-start; gap: 16px; }
+  .feature-icon { width: 44px; height: 44px; background: var(--rose); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .feature-text h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 6px; color: var(--text); }
+  .feature-text p { font-size: 0.88rem; color: var(--text-light); font-weight: 300; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-inner { display: flex; flex-direction: column; gap: 40px; }
+  .about-text .section-title { margin-bottom: 20px; }
+  .about-text p { color: var(--text-light); font-weight: 300; line-height: 1.8; margin-bottom: 16px; font-size: 1rem; }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-info { display: flex; flex-direction: column; gap: 20px; }
+  .info-card { background: var(--cream); padding: 24px; border-radius: 4px; }
+  .info-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--rose); margin-bottom: 12px; font-weight: 600; letter-spacing: 0.05em; }
+  .info-card p, .info-card address { font-size: 0.9rem; color: var(--text-light); font-style: normal; line-height: 1.7; font-weight: 300; }
+
+  /* ── HOURS ── */
+  #hours { background: var(--cream); }
+  .hours-card { background: var(--white); border-radius: 6px; padding: 36px; max-width: 540px; box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
+  .hours-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(196,132,154,0.12); }
+  .hours-row:last-of-type { border-bottom: none; }
+  .hours-day { font-weight: 500; font-size: 0.9rem; color: var(--text); }
+  .hours-time { font-size: 0.9rem; color: var(--text-light); font-weight: 300; }
+  .map-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: var(--rose); font-size: 0.9rem; font-weight: 500; text-decoration: none; border: 1.5px solid var(--rose); padding: 10px 20px; border-radius: 2px; transition: all 0.3s; }
+  .map-btn:hover { background: var(--rose); color: var(--white); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: 50px 20px 30px;
+  }
+
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 36px; }
+  .footer-brand .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 10px; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; font-weight: 300; }
+  .footer-section h4 { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; }
+  .footer-section p, .footer-section address { font-size: 0.85rem; line-height: 1.8; font-style: normal; font-weight: 300; }
+  .footer-section a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .footer-section a:hover { color: var(--rose); }
+  .footer-bottom { max-width: 1100px; margin: 36px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+
+  /* ── FLOATING CTA ── */
+  .float-cta {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: var(--rose);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 20px rgba(196,132,154,0.5);
+    z-index: 999;
+    transition: all 0.3s;
+    letter-spacing: 0.05em;
+  }
+  .float-cta:hover { background: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(184,150,110,0.5); }
+
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── TABLET 768px ── */
+  @media (min-width: 768px) {
+    nav { padding: 0 40px; }
+    section { padding: 90px 40px; }
+
+    .services-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-inner { flex-direction: row; }
+    .about-text { flex: 1.2; }
+    .about-info { flex: 1; }
+
+    .footer-inner { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── DESKTOP 1024px ── */
+  @media (min-width: 1024px) {
+    nav { padding: 0 60px; }
+    .nav-phone { display: block; }
+
+    section { padding: 110px 60px; }
+
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .features-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Heavenly Nails <span>& Spa · Glenview</span></a>
+  <a href="tel:8474864131" class="nav-phone">(847) 486-4131</a>
+  <a href="https://booksy.com" target="_blank" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Glenview's Premier Nail & Wellness Studio</p>
+    <h1 class="hero-title">Your moment of <em>bliss</em><br>in Glenview</h1>
+    <p class="hero-tagline">Premium nail care, waxing &amp; wellness — all in one serene Glenview escape.</p>
+    <div class="hero-btns">
+      <a href="https://booksy.com" target="_blank" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Services crafted for you</h2>
+      <p class="section-sub">From express manicures to full wellness treatments — everything in one beautiful space.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">💅</div>
+        <div class="service-name">Manicures</div>
+        <div class="service-desc">Classic, gel, and luxury hand treatments tailored to your nails.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🦶</div>
+        <div class="service-name">Pedicures</div>
+        <div class="service-desc">Relaxing spa foot treatments to soothe and revive tired feet.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">✨</div>
+        <div class="service-name">Gel & Nail Art</div>
+        <div class="service-desc">Long-lasting color and custom nail designs that express your style.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon">🌸</div>
+        <div class="service-name">Waxing</div>
+        <div class="service-desc">Full body waxing services for smooth, long-lasting results.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🕊️</div>
+        <div class="service-name">Massages</div>
+        <div class="service-desc">Tension-relieving full body massage by skilled therapists.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🌿</div>
+        <div class="service-name">Facials</div>
+        <div class="service-desc">Rejuvenating skin care treatments for a radiant, healthy glow.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🥂</div>
+        <div class="service-name">Private Events</div>
+        <div class="service-desc">Birthday parties &amp; bridal showers, fully hosted in our spa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Why Heavenly</p>
+      <h2 class="section-title">The Heavenly difference</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item reveal reveal-delay-1">
+        <div class="feature-icon">🌟</div>
+        <div class="feature-text">
+          <h3>Expert Technicians</h3>
+          <p>Highly trained professionals passionate about nail artistry and wellness.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal reveal-delay-2">
+        <div class="feature-icon">✦</div>
+        <div class="feature-text">
+          <h3>Serene Atmosphere</h3>
+          <p>A calm, beautifully designed space that melts stress away the moment you walk in.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal reveal-delay-3">
+        <div class="feature-icon">💎</div>
+        <div class="feature-text">
+          <h3>Premium Products</h3>
+          <p>Only the finest brands and formulas for lasting results and healthy nails.</p>
+        </div>
+      </div>
+      <div class="feature-item reveal reveal-delay-4">
+        <div class="feature-icon">🥂</div>
+        <div class="feature-text">
+          <h3>Private Event Hosting</h3>
+          <p>Make your celebration unforgettable with a fully hosted spa party.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text reveal">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">A sanctuary in the heart of Glenview</h2>
+        <p>Heavenly Nails &amp; Spa was born from a simple belief: everyone deserves a moment of true relaxation. Nestled in Glenview, we've created a space where premium nail care meets genuine wellness.</p>
+        <p>Our team of dedicated technicians brings artistry and care to every service. Whether it's a quick lunchtime manicure or an indulgent spa afternoon, we tailor every visit to you.</p>
+        <a href="https://booksy.com" target="_blank" class="btn-primary" style="display:inline-block;margin-top:24px;">Reserve Your Visit</a>
+      </div>
+      <div class="about-info reveal reveal-delay-2">
+        <div class="info-card">
+          <h3>📍 Find Us</h3>
+          <address>1625 Waukegan Rd<br>Glenview, IL 60025</address>
+        </div>
+        <div class="info-card">
+          <h3>📞 Call Us</h3>
+          <p><a href="tel:8474864131" style="color:var(--rose);text-decoration:none;">(847) 486-4131</a></p>
+        </div>
+        <div class="info-card">
+          <h3>🌸 Follow Us</h3>
+          <p>@heavenlynailsglenview</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section id="hours">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;">
+      <p class="section-label">Hours</p>
+      <h2 class="section-title">Visit us anytime</h2>
+    </div>
+    <div class="hours-card reveal reveal-delay-1">
+      <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">9:30 AM – 7:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:30 AM – 5:30 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10:30 AM – 4:30 PM</span></div>
+      <a href="https://maps.google.com/?q=1625+Waukegan+Rd+Glenview+IL" target="_blank" class="map-btn">📍 Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Heavenly Nails & Spa</div>
+      <p>Premium nail care, waxing &amp; wellness in the heart of Glenview, Illinois. Your moment of bliss awaits.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Hours</h4>
+      <p>Mon–Fri: 9:30 AM – 7:00 PM<br>Saturday: 9:30 AM – 5:30 PM<br>Sunday: 10:30 AM – 4:30 PM</p>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <address>
+        1625 Waukegan Rd<br>Glenview, IL 60025<br><br>
+        <a href="tel:8474864131">(847) 486-4131</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Heavenly Nails & Spa · Glenview, IL · Website by <a href="#" style="color:rgba(255,255,255,0.5);">Corner Digital Group</a>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="https://booksy.com" target="_blank" class="float-cta">Book Now ✦</a>
+
+<script>
+  // IntersectionObserver reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Hide floating CTA on desktop nav overlap
+  window.addEventListener('scroll', () => {
+    const floatCta = document.querySelector('.float-cta');
+    floatCta.style.opacity = window.scrollY > 200 ? '1' : '0';
+    floatCta.style.pointerEvents = window.scrollY > 200 ? 'auto' : 'none';
+  });
+  document.querySelector('.float-cta').style.opacity = '0';
+</script>
+</body>
+</html>

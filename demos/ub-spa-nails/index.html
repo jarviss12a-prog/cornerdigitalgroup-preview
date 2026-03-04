@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UB Spa Nails — Glenview, IL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #FFFFFF;
+    --black: #0A0A0A;
+    --coral: #FF6B4A;
+    --gray: #F5F5F5;
+    --text: #0A0A0A;
+    --text-mid: #4A4A4A;
+    --text-light: #888;
+    --nav-h: 70px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.6; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .nav-logo { text-decoration: none; }
+  .nav-logo .wordmark { font-size: 1.1rem; font-weight: 900; color: var(--black); letter-spacing: -0.02em; }
+  .nav-logo .wordmark span { color: var(--coral); }
+  .nav-logo .sub { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); display: none; }
+  .nav-phone { display: none; font-size: 0.86rem; color: var(--text-mid); font-weight: 600; }
+  .nav-cta {
+    background: var(--black); color: var(--white);
+    padding: 10px 22px; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--coral); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex; align-items: center;
+    padding: calc(var(--nav-h) + 50px) 20px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-stripe {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+    background: var(--coral);
+  }
+  .hero-bg-text {
+    position: absolute; bottom: -2%; right: -2%;
+    font-size: clamp(8rem, 22vw, 18rem);
+    font-weight: 900; line-height: 1;
+    color: rgba(255,107,74,0.04); pointer-events: none;
+    user-select: none; letter-spacing: -0.04em;
+  }
+  .hero-inner { max-width: 1100px; width: 100%; margin: 0 auto; position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,107,74,0.08); color: var(--coral);
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 6px 14px;
+    border: 1px solid rgba(255,107,74,0.2);
+    margin-bottom: 28px;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 6.5rem);
+    font-weight: 900; line-height: 1;
+    color: var(--black); margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    max-width: 860px;
+  }
+  .hero-title em { color: var(--coral); font-style: normal; }
+  .hero-tagline { font-size: clamp(1rem, 2.5vw, 1.15rem); color: var(--text-mid); max-width: 500px; margin-bottom: 44px; font-weight: 300; line-height: 1.7; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-black {
+    background: var(--black); color: var(--white);
+    padding: 15px 34px; text-decoration: none;
+    font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
+    text-transform: uppercase; transition: all 0.3s;
+  }
+  .btn-black:hover { background: var(--coral); transform: translateY(-2px); }
+  .btn-coral-out {
+    border: 2px solid var(--black); color: var(--black);
+    padding: 15px 34px; text-decoration: none;
+    font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
+    text-transform: uppercase; transition: all 0.3s; background: transparent;
+  }
+  .btn-coral-out:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
+
+  /* ── STATS ── */
+  #stats { background: var(--black); padding: 60px 20px; }
+  .stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 30px; text-align: center; }
+  .stat-item {}
+  .stat-num { font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 900; color: var(--coral); line-height: 1; letter-spacing: -0.03em; }
+  .stat-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 6px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .s-eye { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+  .s-title { font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1; color: var(--black); margin-bottom: 14px; letter-spacing: -0.03em; }
+  .s-sub { color: var(--text-mid); font-size: 0.92rem; font-weight: 300; max-width: 500px; line-height: 1.7; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--gray); }
+  .svc-head { margin-bottom: 50px; }
+  .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .svc-card {
+    background: var(--white);
+    padding: 24px 22px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+  }
+  .svc-card:hover { border-bottom-color: var(--coral); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .svc-name { font-size: 0.95rem; font-weight: 700; color: var(--black); margin-bottom: 7px; }
+  .svc-desc { font-size: 0.82rem; color: var(--text-light); font-weight: 300; line-height: 1.6; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-wrap { display: flex; flex-direction: column; gap: 50px; }
+  .about-text p { color: var(--text-mid); font-weight: 300; line-height: 1.85; margin-bottom: 16px; font-size: 0.98rem; }
+  .polish-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .badge { background: var(--gray); color: var(--text-mid); font-size: 0.78rem; font-weight: 600; padding: 7px 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .about-aside { display: flex; flex-direction: column; gap: 14px; }
+  .info-row { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; background: var(--gray); border-left: 3px solid var(--coral); }
+  .info-row h4 { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); }
+  .info-row p, .info-row address { font-size: 0.88rem; color: var(--text-mid); font-style: normal; line-height: 1.7; font-weight: 400; }
+  .info-row a { color: var(--coral); text-decoration: none; }
+
+  /* ── HOURS ── */
+  #hours { background: var(--gray); }
+  .hours-card { background: var(--white); padding: 34px; max-width: 500px; border-top: 3px solid var(--coral); box-shadow: 0 4px 30px rgba(0,0,0,0.05); }
+  .h-row { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .h-row:last-of-type { border-bottom: none; }
+  .h-day { font-size: 0.87rem; font-weight: 600; color: var(--black); }
+  .h-time { font-size: 0.87rem; color: var(--text-light); font-weight: 400; }
+  .map-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px; background: var(--black); color: var(--white);
+    padding: 12px 22px; text-decoration: none;
+    font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em;
+    text-transform: uppercase; transition: all 0.3s;
+  }
+  .map-btn:hover { background: var(--coral); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--black); color: rgba(255,255,255,0.5); padding: 52px 20px 28px; }
+  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 36px; }
+  .f-brand .name { font-size: 1.3rem; font-weight: 900; color: var(--white); margin-bottom: 10px; letter-spacing: -0.02em; }
+  .f-brand .name span { color: var(--coral); }
+  .f-brand p { font-size: 0.82rem; line-height: 1.7; font-weight: 300; }
+  .f-col h5 { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); margin-bottom: 14px; }
+  .f-col p, .f-col address { font-size: 0.82rem; line-height: 1.8; font-style: normal; font-weight: 300; }
+  .f-col a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .f-col a:hover { color: var(--coral); }
+  .footer-bar { max-width: 1100px; margin: 36px auto 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.07); text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+  /* ── FLOAT CTA ── */
+  .float-cta {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--coral); color: var(--white);
+    padding: 13px 22px; text-decoration: none;
+    font-weight: 800; font-size: 0.82rem; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 22px rgba(255,107,74,0.5);
+    z-index: 999; transition: all 0.3s;
+    opacity: 0; pointer-events: none;
+  }
+  .float-cta.show { opacity: 1; pointer-events: auto; }
+  .float-cta:hover { background: var(--black); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,0,0,0.4); }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}
+
+  @media (min-width: 768px) {
+    nav { padding: 0 40px; }
+    .nav-logo .sub { display: block; }
+    section { padding: 100px 40px; }
+    #stats { padding: 70px 40px; }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .svc-grid { grid-template-columns: repeat(3, 1fr); }
+    .about-wrap { flex-direction: row; }
+    .about-text { flex: 1.2; }
+    .about-aside { flex: 1; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    nav { padding: 0 60px; }
+    .nav-phone { display: block; }
+    section { padding: 120px 60px; }
+    #stats { padding: 80px 60px; }
+    .svc-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="wordmark"><span>UB</span> Spa Nails</div>
+    <div class="sub">Glenview, Illinois</div>
+  </a>
+  <a href="tel:8478329995" class="nav-phone">(847) 832-9995</a>
+  <a href="https://booksy.com" target="_blank" class="nav-cta">Book Now</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-stripe"></div>
+  <div class="hero-bg-text">UB</div>
+  <div class="hero-inner">
+    <div class="hero-badge">✦ Walk-Ins Welcome · Glenview, IL</div>
+    <h1 class="hero-title">Premium Nails.<br><em>Glenview's<br>Most Trusted.</em></h1>
+    <p class="hero-tagline">Professional nail services you can count on — walk-ins always welcome.</p>
+    <div class="hero-btns">
+      <a href="https://booksy.com" target="_blank" class="btn-black">Book an Appointment</a>
+      <a href="#services" class="btn-coral-out">See Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-num">96%</div>
+      <div class="stat-label">Customer Recommendation Rate</div>
+    </div>
+    <div class="stat-item reveal d2">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Walk-Ins Welcome</div>
+    </div>
+    <div class="stat-item reveal d3">
+      <div class="stat-num">2+</div>
+      <div class="stat-label">Premium Polish Brands (Zoya & Dazzle Dry)</div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="svc-head reveal">
+      <p class="s-eye">Services</p>
+      <h2 class="s-title">Everything you need</h2>
+      <p class="s-sub">From classic manicures to advanced gel extensions — all under one roof.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal d1"><div class="svc-name">Manicure</div><div class="svc-desc">Classic and specialty hand treatments with expert care.</div></div>
+      <div class="svc-card reveal d2"><div class="svc-name">Pedicure</div><div class="svc-desc">Relaxing foot care and spa treatments to restore your feet.</div></div>
+      <div class="svc-card reveal d3"><div class="svc-name">No-Chip (Gel)</div><div class="svc-desc">Long-lasting chip-free gel polish for weeks of perfect color.</div></div>
+      <div class="svc-card reveal d4"><div class="svc-name">Builder Gel</div><div class="svc-desc">Strengthening gel overlays and extensions for healthier nails.</div></div>
+      <div class="svc-card reveal d1"><div class="svc-name">Gel X</div><div class="svc-desc">Soft gel nail extensions for a natural look and feel.</div></div>
+      <div class="svc-card reveal d2"><div class="svc-name">Dip Powder</div><div class="svc-desc">Durable color without UV light — chip-free and vibrant.</div></div>
+      <div class="svc-card reveal d3"><div class="svc-name">Full Set & Fill-In</div><div class="svc-desc">Acrylic full sets and maintenance fills done with precision.</div></div>
+      <div class="svc-card reveal d4"><div class="svc-name">Body Waxing</div><div class="svc-desc">Professional hair removal for smooth, lasting results.</div></div>
+      <div class="svc-card reveal d1"><div class="svc-name">Massage</div><div class="svc-desc">Relaxation and therapeutic massage by skilled hands.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-text reveal">
+        <p class="s-eye">About Us</p>
+        <h2 class="s-title">Trusted by<br>Glenview.</h2>
+        <p>UB Spa Nails has earned a reputation as Glenview's most trusted nail destination. With a 96% customer recommendation rate and a commitment to premium products, we do things right — every time.</p>
+        <p>We carry Zoya and Dazzle Dry polishes — two of the cleanest, highest-quality formulas on the market. Because what goes on your nails matters.</p>
+        <div class="polish-badges">
+          <div class="badge">Zoya Polish</div>
+          <div class="badge">Dazzle Dry</div>
+          <div class="badge">Walk-Ins Welcome</div>
+        </div>
+        <a href="https://booksy.com" target="_blank" class="btn-black" style="display:inline-block;margin-top:28px;">Book Your Visit</a>
+      </div>
+      <div class="about-aside reveal d2">
+        <div class="info-row">
+          <h4>Location</h4>
+          <address>2200 Waukegan Rd, Ste A<br>Glenview, IL 60025</address>
+        </div>
+        <div class="info-row">
+          <h4>Phone</h4>
+          <p><a href="tel:8478329995">(847) 832-9995</a></p>
+        </div>
+        <div class="info-row">
+          <h4>Email</h4>
+          <p><a href="mailto:ubspanails@gmail.com">ubspanails@gmail.com</a></p>
+        </div>
+        <div class="info-row">
+          <h4>Hours</h4>
+          <p>Mon–Fri: 9 AM – 7 PM<br>Sat: 9 AM – 6 PM<br>Sun: 10 AM – 5 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;">
+      <p class="s-eye">Hours</p>
+      <h2 class="s-title">Open 7 days</h2>
+    </div>
+    <div class="hours-card reveal d1">
+      <div class="h-row"><span class="h-day">Monday – Friday</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Saturday</span><span class="h-time">9:00 AM – 6:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Sunday</span><span class="h-time">10:00 AM – 5:00 PM</span></div>
+      <a href="https://maps.google.com/?q=2200+Waukegan+Rd+Glenview+IL" target="_blank" class="map-btn">📍 Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="name"><span>UB</span> Spa Nails</div>
+      <p>Glenview's most trusted nail salon. Premium services, professional results, walk-ins always welcome.</p>
+    </div>
+    <div class="f-col">
+      <h5>Hours</h5>
+      <p>Mon–Fri: 9 AM – 7 PM<br>Saturday: 9 AM – 6 PM<br>Sunday: 10 AM – 5 PM</p>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <address>
+        2200 Waukegan Rd, Ste A<br>Glenview, IL 60025<br><br>
+        <a href="tel:8478329995">(847) 832-9995</a><br>
+        <a href="mailto:ubspanails@gmail.com">ubspanails@gmail.com</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bar">&copy; 2025 UB Spa Nails · Glenview, IL · Website by <a href="#" style="color:rgba(255,255,255,0.25);">Corner Digital Group</a></div>
+</footer>
+
+<a href="https://booksy.com" target="_blank" class="float-cta" id="floatBtn">Book Now</a>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}), {threshold:0.1});
+  reveals.forEach(r => obs.observe(r));
+  const f = document.getElementById('floatBtn');
+  window.addEventListener('scroll', () => f.classList.toggle('show', scrollY > 250));
+</script>
+</body>
+</html>

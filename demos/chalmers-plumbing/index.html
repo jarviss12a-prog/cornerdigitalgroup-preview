@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chalmers Plumbing | Hobart, IN | (219) 359-9291</title>
+  <meta name="description" content="Chalmers Plumbing — Hobart's most trusted plumber. Licensed, bonded & insured. Voted Top 3 Best Plumber 2024 & 2025. Serving Lake & Porter County. Call (219) 359-9291." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1f3c;
+      --navy-dark: #081429;
+      --navy-mid: #132848;
+      --yellow: #f5c200;
+      --yellow-hover: #e0af00;
+      --orange: #f07000;
+      --white: #ffffff;
+      --light-gray: #f4f6f9;
+      --text-muted: #6b7a99;
+      --radius: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .heading {
+      font-family: 'Oswald', sans-serif;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===================== NAV ===================== */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--navy-dark);
+      border-bottom: 3px solid var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      height: 64px;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-icon {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .nav-logo-text span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--yellow);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      display: none;
+    }
+
+    .nav-phone:hover { color: var(--yellow); }
+
+    .btn-yellow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--yellow);
+      color: var(--navy-dark);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    .btn-yellow:hover { background: var(--yellow-hover); transform: translateY(-1px); }
+
+    .btn-navy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-navy:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    @media (min-width: 768px) {
+      .nav-phone { display: block; }
+      #nav { padding: 0 2rem; }
+    }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 1.25rem 3rem;
+    }
+
+    /* Diagonal background accent */
+    #hero::before {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      right: -15%;
+      width: 70%;
+      height: 110%;
+      background: var(--navy-mid);
+      transform: skewX(-12deg);
+      z-index: 0;
+    }
+
+    /* Pipe/wrench SVG watermark */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 55%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='600' viewBox='0 0 400 600'%3E%3Ccircle cx='320' cy='300' r='200' fill='%23132848' opacity='0.6'/%3E%3Ccircle cx='320' cy='300' r='140' fill='%230d1f3c' opacity='0.5'/%3E%3Cpath d='M200 120 Q320 200 300 380 Q280 480 350 520' stroke='%23f5c200' stroke-width='3' fill='none' opacity='0.12'/%3E%3Cpath d='M160 80 Q280 160 260 340 Q240 440 310 480' stroke='%23f5c200' stroke-width='2' fill='none' opacity='0.08'/%3E%3C/svg%3E") center/cover no-repeat;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--yellow);
+      color: var(--navy-dark);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-badge svg { width: 16px; height: 16px; }
+
+    h1.hero-title {
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    h1.hero-title span { color: var(--yellow); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1rem;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .hero-phone {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-phone:hover { color: #fff; }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-ctas .btn-yellow { font-size: 1.05rem; padding: 0.8rem 1.8rem; }
+
+    .hero-award-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(245,194,0,0.3);
+      border-radius: var(--radius);
+      padding: 0.9rem 1.2rem;
+      max-width: 400px;
+    }
+
+    .award-star-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+    }
+
+    .hero-award-box p {
+      font-family: 'Oswald', sans-serif;
+      color: var(--white);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .hero-award-box p strong {
+      color: var(--yellow);
+      font-size: 1.05rem;
+    }
+
+    /* ===================== TRUST BAR ===================== */
+    #trust-bar {
+      background: var(--yellow);
+      padding: 0.85rem 1rem;
+      overflow: hidden;
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--navy-dark);
+    }
+
+    .trust-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .trust-sep {
+      color: var(--navy-dark);
+      opacity: 0.35;
+      font-size: 1.2rem;
+      display: none;
+    }
+
+    @media (min-width: 600px) { .trust-sep { display: block; } }
+
+    /* ===================== SECTIONS ===================== */
+    section { padding: 4rem 1.25rem; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title.white { color: var(--white); }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-sub.white { color: rgba(255,255,255,0.7); }
+
+    /* ===================== SERVICES ===================== */
+    #services { background: var(--light-gray); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.2rem;
+      border-left: 4px solid var(--yellow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,31,60,0.1); }
+
+    .service-icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-icon svg { width: 22px; height: 22px; }
+
+    .service-info h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    .service-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ===================== WHY CHALMERS ===================== */
+    #why { background: var(--navy); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(245,194,0,0.2);
+      border-radius: var(--radius);
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .why-card:hover { border-color: var(--yellow); background: rgba(245,194,0,0.05); }
+
+    .why-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .why-icon svg { width: 28px; height: 28px; }
+
+    .why-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    /* ===================== REVIEWS ===================== */
+    #reviews { background: var(--white); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--light-gray);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      position: relative;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .star-svg { width: 18px; height: 18px; fill: #fbbc04; }
+
+    .review-text {
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+
+    .review-source {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .g-logo {
+      width: 12px; height: 12px;
+      display: inline-block;
+      background: linear-gradient(135deg, #4285f4 25%, #ea4335 25% 50%, #fbbc04 50% 75%, #34a853 75%);
+      border-radius: 50%;
+    }
+
+    .reviews-meta {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .reviews-meta strong { color: var(--navy); font-family: 'Oswald', sans-serif; font-size: 1.05rem; }
+
+    /* ===================== SERVICE AREA ===================== */
+    #area { background: var(--light-gray); }
+
+    .area-map-placeholder {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .area-map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 40% 50%, rgba(245,194,0,0.08) 0%, transparent 70%);
+    }
+
+    .area-map-icon { margin-bottom: 1rem; }
+
+    .area-map-placeholder h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .area-map-placeholder p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      position: relative;
+    }
+
+    .cities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .city-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 0.65rem 1rem;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .city-dot {
+      width: 8px; height: 8px;
+      background: var(--yellow);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===================== CTA / CONTACT ===================== */
+    #contact { background: var(--navy); text-align: center; }
+    .contact-layout { display: block; }
+
+    .contact-phone {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      font-weight: 700;
+      color: var(--yellow);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      margin: 1rem 0 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .contact-phone:hover { color: var(--white); }
+
+    .contact-tagline {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.92rem;
+      text-decoration: none;
+    }
+
+    .contact-detail:hover { color: var(--yellow); }
+    .contact-detail svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--yellow); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--navy-dark);
+      border-top: 3px solid var(--yellow);
+      padding: 2rem 1.25rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem 1.5rem;
+      margin: 0.75rem 0;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--yellow); }
+
+    .footer-badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    .footer-badge {
+      background: rgba(245,194,0,0.12);
+      border: 1px solid rgba(245,194,0,0.3);
+      border-radius: 50px;
+      padding: 0.3rem 0.8rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 1rem;
+    }
+
+    /* ===================== FLOAT BUTTON ===================== */
+    #float-call {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      background: var(--yellow);
+      color: var(--navy-dark);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(245,194,0,0.45);
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    #float-call:hover {
+      background: var(--yellow-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(245,194,0,0.55);
+    }
+
+    #float-call svg { width: 20px; height: 20px; }
+
+    /* Hide float button on desktop when nav phone is visible */
+    @media (min-width: 1024px) { #float-call { display: none; } }
+
+    /* ===================== ANIMATIONS ===================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===================== UTILITIES ===================== */
+
+    /* ---- Tablet (768px–1023px) ---- */
+    @media (min-width: 768px) {
+      section { padding: 5rem 1.5rem; }
+      footer { padding: 2.5rem 2rem; }
+      .nav-phone { display: block; font-size: 1.2rem; }
+
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ---- Desktop (1024px+) ---- */
+    @media (min-width: 1024px) {
+      section { padding: 6rem 2rem; }
+      .container { max-width: 1200px; padding: 0 2rem; }
+
+      /* Nav */
+      #nav { padding: 0 2.5rem; }
+      .nav-phone { display: block; font-size: 1.3rem; letter-spacing: 0.05em; }
+
+      /* Hero — 2 column */
+      #hero { padding: 100px 2rem 4rem; }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .hero-content { max-width: none; text-align: left; }
+      h1.hero-title { font-size: 4.5rem; }
+      .hero-visual { display: flex; align-items: center; justify-content: center; }
+
+      /* Services — 3 columns */
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+
+      /* Why — 4 columns */
+      .why-grid { grid-template-columns: repeat(4, 1fr); }
+
+      /* Reviews — 3 columns */
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+
+      /* Section titles bump */
+      .section-title { font-size: 3rem; }
+
+      /* Service Area — 2 column */
+      .area-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .area-left .section-sub { margin-bottom: 1.5rem; }
+      .area-map-placeholder { margin-bottom: 0; height: 100%; min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+      /* Contact — 2 column */
+      #contact { text-align: left; }
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .contact-left {}
+      .contact-left .contact-phone { font-size: 3.5rem; margin-left: 0; }
+      .contact-left .btn-yellow { margin: 0; }
+      .contact-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-detail-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(245,194,0,0.2);
+        border-radius: var(--radius);
+        padding: 1rem 1.2rem;
+        color: rgba(255,255,255,0.85);
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .contact-detail-card:hover { border-color: var(--yellow); background: rgba(245,194,0,0.05); color: var(--yellow); }
+      .contact-detail-card svg { width: 22px; height: 22px; flex-shrink: 0; color: var(--yellow); }
+      .contact-details { display: none; } /* hide old mobile layout on desktop */
+    }
+
+    /* Hide hero-visual on mobile/tablet */
+    .hero-visual { display: none; }
+    /* Hide contact-right card layout on mobile */
+    .contact-right { display: none; }
+    @media (min-width: 1024px) {
+      .hero-visual { display: flex; }
+      .contact-right { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== FIXED NAV ===== -->
+  <nav id="nav" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="Chalmers Plumbing Home">
+      <!-- Wrench SVG logo -->
+      <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="40" height="40" rx="8" fill="#f5c200"/>
+        <path d="M27.5 9.5a7 7 0 0 0-8.5 8.5l-9 9a2.5 2.5 0 1 0 3.5 3.5l9-9A7 7 0 0 0 27.5 9.5zm-1.5 5a2 2 0 1 1-2-2 2 2 0 0 1 2 2z" fill="#0d1f3c"/>
+      </svg>
+      <div class="nav-logo-text">
+        Chalmers Plumbing
+        <span>Hobart, IN · Since Day One</span>
+      </div>
+    </a>
+
+    <a href="tel:2193599291" class="nav-phone" aria-label="Call Chalmers Plumbing">(219) 359-9291</a>
+
+    <a href="tel:2193599291" class="btn-yellow" aria-label="Call Now">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11.5 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/>
+      </svg>
+      Call Now
+    </a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge" aria-label="Award badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Voted Top 3 Best Plumber — 2024 &amp; 2025
+      </div>
+
+      <h1 class="hero-title">Hobart's Most<br><span>Trusted Plumber</span></h1>
+
+      <p class="hero-sub">Fast, reliable plumbing services across Lake &amp; Porter County, Indiana. Available 24/7 — no job too big or too small.</p>
+
+      <a href="tel:2193599291" class="hero-phone" aria-label="Phone number">(219) 359-9291</a>
+
+      <div class="hero-ctas">
+        <a href="tel:2193599291" class="btn-yellow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11.5 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/>
+          </svg>
+          Call Now
+        </a>
+        <a href="mailto:chalmersplumbing@gmail.com" class="btn-navy">Get Free Estimate</a>
+      </div>
+
+      <div class="hero-award-box" aria-label="Award details">
+        <svg class="award-star-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#f5c200" opacity="0.15"/>
+          <circle cx="24" cy="24" r="16" fill="#f5c200" opacity="0.2"/>
+          <path d="M24 8l4 10 11 1.5-8 7.5 2 11L24 32l-9 6 2-11-8-7.5 11-1.5z" fill="#f5c200"/>
+        </svg>
+        <p>
+          <strong>Top 3 Best Plumber in the Region</strong><br>
+          Recognized in 2024 &amp; 2025 · 56 Reviews · 98% Recommended on Facebook
+        </p>
+      </div>
+    </div>
+
+    <!-- Desktop right-side decorative visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <div style="position:relative; width:100%; max-width:460px;">
+        <!-- Big decorative SVG: stylized pipe wrench -->
+        <svg viewBox="0 0 460 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;filter:drop-shadow(0 0 40px rgba(245,194,0,0.15));">
+          <!-- Background circles -->
+          <circle cx="230" cy="250" r="210" fill="#132848" opacity="0.5"/>
+          <circle cx="230" cy="250" r="160" fill="#0d1f3c" opacity="0.6"/>
+          <circle cx="230" cy="250" r="110" fill="#132848" opacity="0.4"/>
+          <!-- Wrench shape -->
+          <path d="M310 100 C340 80 370 90 380 115 C390 140 375 165 355 170 L230 295 L185 250 L310 125 C315 120 312 108 310 100Z" fill="#f5c200" opacity="0.9"/>
+          <path d="M160 320 L185 295 L230 340 L205 365 C180 390 145 390 125 370 C105 350 108 315 130 295 C140 285 155 282 165 285 L160 320Z" fill="#f5c200" opacity="0.9"/>
+          <circle cx="147" cy="345" r="18" fill="#0d1f3c"/>
+          <!-- Pipe lines -->
+          <path d="M80 200 Q130 200 130 240 L130 420 Q130 450 160 450 L300 450" stroke="#f5c200" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.25"/>
+          <path d="M80 200 Q130 200 130 240" stroke="#f5c200" stroke-width="22" stroke-linecap="round" fill="none" opacity="0.12"/>
+          <!-- Accent ring -->
+          <circle cx="230" cy="250" r="200" stroke="#f5c200" stroke-width="1.5" opacity="0.07" stroke-dasharray="12 8"/>
+        </svg>
+        <!-- Stats overlay -->
+        <div style="position:absolute; bottom:40px; left:50%; transform:translateX(-50%); display:flex; gap:1.5rem; width:max-content;">
+          <div style="background:rgba(13,31,60,0.92); border:1px solid rgba(245,194,0,0.35); border-radius:10px; padding:1rem 1.4rem; text-align:center; backdrop-filter:blur(8px);">
+            <div style="font-family:'Oswald',sans-serif; font-size:2rem; font-weight:700; color:#f5c200; line-height:1;">56</div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:600; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em; margin-top:0.2rem;">Reviews</div>
+          </div>
+          <div style="background:rgba(13,31,60,0.92); border:1px solid rgba(245,194,0,0.35); border-radius:10px; padding:1rem 1.4rem; text-align:center; backdrop-filter:blur(8px);">
+            <div style="font-family:'Oswald',sans-serif; font-size:2rem; font-weight:700; color:#f5c200; line-height:1;">98%</div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:600; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em; margin-top:0.2rem;">Recommended</div>
+          </div>
+          <div style="background:rgba(245,194,0,1); border-radius:10px; padding:1rem 1.4rem; text-align:center;">
+            <div style="font-family:'Oswald',sans-serif; font-size:2rem; font-weight:700; color:#0d1f3c; line-height:1;">#3</div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:600; color:#0d1f3c; text-transform:uppercase; letter-spacing:0.08em; margin-top:0.2rem;">Best Plumber</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /.hero-inner -->
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div id="trust-bar" role="complementary" aria-label="Trust indicators">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Licensed
+      </div>
+      <span class="trust-sep" aria-hidden="true">|</span>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Bonded
+      </div>
+      <span class="trust-sep" aria-hidden="true">|</span>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Insured
+      </div>
+      <span class="trust-sep" aria-hidden="true">|</span>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        24/7 Available
+      </div>
+      <span class="trust-sep" aria-hidden="true">|</span>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Top 3 Rated 2024 &amp; 2025
+      </div>
+      <span class="trust-sep" aria-hidden="true">|</span>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Lake &amp; Porter County
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <p class="section-label reveal">What We Do</p>
+      <h2 class="section-title reveal reveal-delay-1" id="services-heading">Our Services</h2>
+      <p class="section-sub reveal reveal-delay-2">From emergency repairs to full installations — we handle it all across Lake &amp; Porter County.</p>
+
+      <div class="services-grid">
+        <!-- Water Heaters -->
+        <div class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H3"/><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M19 7h2"/><path d="M19 12h2"/><path d="M19 17h2"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Water Heaters</h3>
+            <p>Installation, repair &amp; replacement of tank and tankless units.</p>
+          </div>
+        </div>
+        <!-- Gas Pipe -->
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Gas Pipe</h3>
+            <p>Safe gas line installation, repair, and leak detection services.</p>
+          </div>
+        </div>
+        <!-- Water Lines -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 9-10 10C6 21 2 17 2 12A10 10 0 0 1 12 2z"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Water Lines</h3>
+            <p>New water line runs, repairs &amp; re-piping for your home or business.</p>
+          </div>
+        </div>
+        <!-- Drain Lines -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M5 7v14"/><path d="M19 7v14"/><path d="M5 14h14"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Drain Lines</h3>
+            <p>Drain installation, repair &amp; clearing for all fixture types.</p>
+          </div>
+        </div>
+        <!-- Sewer Cleaning -->
+        <div class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Sewer Cleaning</h3>
+            <p>Main sewer line cleaning &amp; hydro-jetting to restore flow.</p>
+          </div>
+        </div>
+        <!-- Small Line Cleaning -->
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 4v16M16 4v16M4 8h16M4 16h16"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Small Line Cleaning</h3>
+            <p>Kitchen, bathroom &amp; laundry drain clearing — fast &amp; effective.</p>
+          </div>
+        </div>
+        <!-- Sump Pumps -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M4.93 4.93l4.24 4.24"/><path d="M2 12h6"/><path d="M4.93 19.07l4.24-4.24"/><path d="M12 22v-6"/><path d="M19.07 19.07l-4.24-4.24"/><path d="M22 12h-6"/><path d="M19.07 4.93l-4.24 4.24"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Sump Pumps</h3>
+            <p>Installation, repair &amp; battery backup to protect your basement.</p>
+          </div>
+        </div>
+        <!-- Ejector Pumps -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Ejector Pumps</h3>
+            <p>Sewage ejector pump service for below-grade bathrooms &amp; laundry.</p>
+          </div>
+        </div>
+        <!-- Faucet Installs -->
+        <div class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14"/><path d="M12 8V4"/><path d="M9 12v6a3 3 0 0 0 6 0v-6"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Faucet Installs</h3>
+            <p>Kitchen &amp; bath faucet installation — any brand, any style.</p>
+          </div>
+        </div>
+        <!-- Toilet Installs -->
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="7" ry="5"/><path d="M5 14v3a4 4 0 0 0 8 0v-3"/><path d="M9 9V5a3 3 0 0 1 6 0v4"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Toilet Installs</h3>
+            <p>Full toilet replacement, installation, and wax ring seals.</p>
+          </div>
+        </div>
+        <!-- Faucet Rebuilds -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>Faucet Rebuilds</h3>
+            <p>Fix drips, leaks &amp; worn parts — restore your existing fixtures.</p>
+          </div>
+        </div>
+        <!-- And More -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="service-info">
+            <h3>And Much More</h3>
+            <p>Call us — if it's plumbing, we handle it. 24/7, no overtime fees.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHALMERS ===== -->
+  <section id="why" aria-labelledby="why-heading">
+    <div class="container">
+      <p class="section-label white reveal">Why Choose Us</p>
+      <h2 class="section-title white reveal reveal-delay-1" id="why-heading">Why Chalmers?</h2>
+      <p class="section-sub white reveal reveal-delay-2">We're not a call center or a franchise. We're your neighbors — and we take that seriously.</p>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0d1f3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>Top Rated</h3>
+          <p>Voted Top 3 Best Plumber in the Region two years running. 56 reviews, 98% recommendation rate.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0d1f3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Always Available</h3>
+          <p>24/7 — nights, weekends, holidays. When a pipe bursts at 2am, we answer.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0d1f3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Licensed &amp; Insured</h3>
+          <p>Fully licensed, bonded, and insured for your peace of mind on every job.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0d1f3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Local &amp; Reliable</h3>
+          <p>Based right here in Hobart — we know your neighborhood, your pipes, and your community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section id="reviews" aria-labelledby="reviews-heading">
+    <div class="container">
+      <p class="section-label reveal">What People Say</p>
+      <h2 class="section-title reveal reveal-delay-1" id="reviews-heading">Real Customer Reviews</h2>
+      <p class="section-sub reveal reveal-delay-2">Don't just take our word for it — here's what our neighbors are saying.</p>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">"Had a water heater go out on a Saturday night. Chalmers showed up within 2 hours and had us back up and running before midnight. Honest pricing, great attitude. These guys are the real deal."</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">M</div>
+            <div>
+              <div class="review-name">Mike S.</div>
+              <div class="review-source"><span class="g-logo" aria-hidden="true"></span> Google Review · Hobart, IN</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">"I've used Chalmers twice now — once for a sump pump replacement and once for a backed up drain. Both times they were prompt, professional, and didn't try to upsell me on stuff I didn't need. Highly recommend!"</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">J</div>
+            <div>
+              <div class="review-name">Jennifer K.</div>
+              <div class="review-source"><span class="g-logo" aria-hidden="true"></span> Google Review · Merrillville, IN</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star-svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">"Dave came out to replace our ejector pump on short notice. Clean, fast, fair price. He explained everything he was doing and didn't leave until the job was done right. This is who you call in NW Indiana."</p>
+          <div class="review-author">
+            <div class="review-avatar" aria-hidden="true">D</div>
+            <div>
+              <div class="review-name">Dave R.</div>
+              <div class="review-source"><span class="g-logo" aria-hidden="true"></span> Google Review · Crown Point, IN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-meta reveal">
+        <strong>56 Reviews</strong> &nbsp;·&nbsp; 98% Recommended on Facebook &nbsp;·&nbsp; Voted <strong>Top 3 Best Plumber</strong> 2024 &amp; 2025
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE AREA ===== -->
+  <section id="area" aria-labelledby="area-heading">
+    <div class="container">
+      <div class="area-layout">
+        <!-- Left: heading + cities -->
+        <div class="area-left">
+          <p class="section-label reveal">Where We Work</p>
+          <h2 class="section-title reveal reveal-delay-1" id="area-heading">Serving Lake &amp; Porter County</h2>
+          <p class="section-sub reveal reveal-delay-2">We cover all of Northwest Indiana — from Gary to Valparaiso and everywhere in between.</p>
+
+          <div class="cities-grid">
+            <div class="city-item reveal"><div class="city-dot" aria-hidden="true"></div>Hobart</div>
+            <div class="city-item reveal reveal-delay-1"><div class="city-dot" aria-hidden="true"></div>Merrillville</div>
+            <div class="city-item reveal reveal-delay-2"><div class="city-dot" aria-hidden="true"></div>Crown Point</div>
+            <div class="city-item reveal reveal-delay-3"><div class="city-dot" aria-hidden="true"></div>Highland</div>
+            <div class="city-item reveal"><div class="city-dot" aria-hidden="true"></div>Munster</div>
+            <div class="city-item reveal reveal-delay-1"><div class="city-dot" aria-hidden="true"></div>Griffith</div>
+            <div class="city-item reveal reveal-delay-2"><div class="city-dot" aria-hidden="true"></div>Schererville</div>
+            <div class="city-item reveal reveal-delay-3"><div class="city-dot" aria-hidden="true"></div>Portage</div>
+            <div class="city-item reveal"><div class="city-dot" aria-hidden="true"></div>Valparaiso</div>
+            <div class="city-item reveal reveal-delay-1"><div class="city-dot" aria-hidden="true"></div>Hammond</div>
+            <div class="city-item reveal reveal-delay-2"><div class="city-dot" aria-hidden="true"></div>East Chicago</div>
+            <div class="city-item reveal reveal-delay-3"><div class="city-dot" aria-hidden="true"></div>Gary</div>
+          </div>
+        </div>
+        <!-- Right: map placeholder -->
+        <div class="area-right">
+          <div class="area-map-placeholder reveal">
+            <div class="area-map-icon" aria-hidden="true">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#f5c200" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3>All of Lake &amp; Porter County, Indiana</h3>
+            <p>Fast response times throughout Northwest Indiana — we're always nearby.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / CTA ===== -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Left: CTA -->
+        <div class="contact-left">
+          <p class="section-label white reveal">Get In Touch</p>
+          <h2 class="section-title white reveal reveal-delay-1" id="contact-heading">Ready to Get It Fixed?</h2>
+
+          <a href="tel:2193599291" class="contact-phone reveal reveal-delay-2" aria-label="Call (219) 359-9291">(219) 359-9291</a>
+
+          <p class="contact-tagline reveal reveal-delay-3">Call us anytime — we're always open. 24/7, 365 days a year.</p>
+
+          <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.5rem;">
+            <a href="tel:2193599291" class="btn-yellow reveal" style="font-size: 1.1rem; padding: 0.9rem 2.2rem;" aria-label="Call Now">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11.5 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/>
+              </svg>
+              Call Now — It's Free
+            </a>
+            <a href="mailto:chalmersplumbing@gmail.com" class="btn-navy reveal reveal-delay-1">Get Free Estimate</a>
+          </div>
+        </div>
+
+        <!-- Right: contact info cards (desktop only) -->
+        <div class="contact-right">
+          <a href="tel:2193599291" class="contact-detail-card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11.5 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/></svg>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:0.2rem;">Phone</div>
+              <div style="font-family:'Oswald',sans-serif; font-size:1.2rem; font-weight:600;">(219) 359-9291</div>
+            </div>
+          </a>
+          <a href="mailto:chalmersplumbing@gmail.com" class="contact-detail-card reveal reveal-delay-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:0.2rem;">Email</div>
+              <div style="font-size:0.95rem;">chalmersplumbing@gmail.com</div>
+            </div>
+          </a>
+          <div class="contact-detail-card reveal reveal-delay-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:0.2rem;">Address</div>
+              <div style="font-size:0.95rem;">974 Starboard Ct, Hobart, IN 46342</div>
+            </div>
+          </div>
+          <div class="contact-detail-card reveal reveal-delay-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:0.2rem;">Hours</div>
+              <div style="font-size:0.95rem;">Open 24/7 — Always Available</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile contact details (hidden on desktop via CSS) -->
+      <div class="contact-details">
+        <a href="mailto:chalmersplumbing@gmail.com" class="contact-detail reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          chalmersplumbing@gmail.com
+        </a>
+        <div class="contact-detail reveal reveal-delay-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          974 Starboard Ct, Hobart, IN 46342
+        </div>
+        <div class="contact-detail reveal reveal-delay-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Open 24/7 — Always Available
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">Chalmers Plumbing</div>
+      <div class="footer-links">
+        <a href="tel:2193599291">(219) 359-9291</a>
+        <a href="mailto:chalmersplumbing@gmail.com">chalmersplumbing@gmail.com</a>
+        <a href="#services">Services</a>
+        <a href="#area">Service Area</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-badges">
+        <span class="footer-badge">Licensed</span>
+        <span class="footer-badge">Bonded</span>
+        <span class="footer-badge">Insured</span>
+        <span class="footer-badge">24/7 Available</span>
+        <span class="footer-badge">Top 3 Rated 2024 &amp; 2025</span>
+      </div>
+      <p class="footer-copy">&copy; 2025 Chalmers Plumbing · 974 Starboard Ct, Hobart, IN 46342 · Serving Lake &amp; Porter County, Indiana<br>Demo site by <a href="#" style="color:rgba(255,255,255,0.3); text-decoration:none;">Corner Digital Group</a></p>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING CALL BUTTON ===== -->
+  <a id="float-call" href="tel:2193599291" aria-label="Call Chalmers Plumbing now">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 11.5 19.79 19.79 0 0 1 1 2.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 14.92z"/>
+    </svg>
+    Call Now
+  </a>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // IntersectionObserver reveal animations
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.35)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noir Beauty Lounge — Chicago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0d0b0a;
+    --dark: #141210;
+    --surface: #1c1917;
+    --surface2: #242220;
+    --border: rgba(201,162,39,0.18);
+    --gold: #c9a227;
+    --gold-dim: #a07f1b;
+    --gold-light: rgba(201,162,39,0.12);
+    --ivory: #f0e8d8;
+    --mid: #8a7f6d;
+    --white: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--black); color: var(--ivory); line-height: 1.7; font-weight: 300; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(13,11,10,0.9); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  nav.scrolled { background: rgba(13,11,10,0.97); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; letter-spacing: 0.12em; color: var(--ivory); text-decoration: none; text-transform: uppercase; }
+  .nav-logo span { color: var(--gold); }
+  .nav-phone { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--mid); display: none; }
+  @media(min-width:768px){ .nav-phone { display: block; } }
+  .nav-cta {
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.65rem 1.5rem; border: 1px solid var(--gold); color: var(--gold);
+    text-decoration: none; transition: all 0.3s; font-weight: 400;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 7rem 2rem 5rem;
+    background: var(--black);
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,162,39,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse at 10% 10%, rgba(201,162,39,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 90%, rgba(201,162,39,0.03) 0%, transparent 50%);
+  }
+  .hero-line {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 1px; height: 120px; background: linear-gradient(to bottom, transparent, var(--gold));
+    opacity: 0.5;
+  }
+  .hero-eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 2rem; position: relative;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 9vw, 7.5rem);
+    font-weight: 300; line-height: 1.0; margin-bottom: 1.5rem; position: relative;
+    color: var(--ivory); letter-spacing: 0.02em;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 2rem; opacity: 0.6; position: relative; }
+  .hero-sub { font-size: 0.95rem; color: var(--mid); max-width: 440px; margin: 0 auto 3.5rem; position: relative; letter-spacing: 0.03em; }
+  .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; position: relative; }
+  .btn-primary {
+    padding: 1rem 2.5rem; background: var(--gold); color: var(--black);
+    text-decoration: none; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 500; transition: all 0.3s;
+  }
+  .btn-primary:hover { background: #dab82f; box-shadow: 0 0 30px rgba(201,162,39,0.3); }
+  .btn-secondary {
+    padding: 1rem 2.5rem; border: 1px solid rgba(201,162,39,0.4); color: var(--ivory);
+    text-decoration: none; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 400; transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* SECTIONS */
+  section { padding: 6rem 1.5rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 300; color: var(--ivory); margin-bottom: 1rem; line-height: 1.15; }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .gold-rule { width: 40px; height: 1px; background: var(--gold); opacity: 0.5; margin-bottom: 3rem; }
+
+  /* SERVICES */
+  .services { background: var(--dark); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); }
+  .service-card {
+    background: var(--surface); padding: 2.5rem 2rem;
+    transition: background 0.3s; position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .service-card:hover { background: var(--surface2); }
+  .service-card:hover::before { opacity: 1; }
+  .service-num { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+  .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--ivory); margin-bottom: 0.8rem; }
+  .service-desc { font-size: 0.85rem; color: var(--mid); margin-bottom: 1.5rem; line-height: 1.7; }
+  .service-price { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+
+  /* ABOUT */
+  .about { background: var(--black); }
+  .about-inner { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+  @media(min-width:768px){ .about-inner { grid-template-columns: 5fr 4fr; } }
+  .about-text p { color: var(--mid); margin-bottom: 1.2rem; font-size: 0.9rem; line-height: 1.8; }
+  .about-text a {
+    display: inline-block; margin-top: 0.5rem;
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+    text-decoration: none; border-bottom: 1px solid rgba(201,162,39,0.4); padding-bottom: 3px;
+    transition: border-color 0.3s;
+  }
+  .about-text a:hover { border-color: var(--gold); }
+  .about-visual {
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .about-visual-top {
+    aspect-ratio: 3/2;
+    background: linear-gradient(135deg, #1c1917 0%, #2a2520 100%);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-visual-top-inner { text-align: center; }
+  .about-visual-top-inner p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--gold); opacity: 0.7; }
+  .about-visual-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
+  .about-swatch { height: 80px; }
+  .about-swatch:nth-child(1) { background: linear-gradient(135deg, #2a2520, #3a3028); }
+  .about-swatch:nth-child(2) { background: linear-gradient(135deg, #c9a22720, #c9a22740); border: 1px solid var(--border); }
+
+  /* HOURS */
+  .hours { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .hours-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+  @media(min-width:768px){ .hours-grid { grid-template-columns: 1fr 1fr; } }
+  .hours-row { display: flex; justify-content: space-between; padding: 0.9rem 0; border-bottom: 1px solid rgba(201,162,39,0.1); font-size: 0.85rem; }
+  .hours-row:first-child { border-top: 1px solid rgba(201,162,39,0.1); }
+  .hours-row .day { color: var(--ivory); font-weight: 300; }
+  .hours-row .time { color: var(--mid); font-size: 0.82rem; letter-spacing: 0.05em; }
+  .location-block p { font-size: 0.85rem; color: var(--mid); margin-bottom: 0.6rem; line-height: 1.6; }
+  .location-block a { color: var(--gold); text-decoration: none; font-size: 0.85rem; }
+  .map-placeholder { margin-top: 1.5rem; height: 150px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--mid); }
+
+  /* FOOTER */
+  footer { background: var(--dark); border-top: 1px solid var(--border); padding: 3rem 1.5rem 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; margin-bottom: 2.5rem; }
+  @media(min-width:768px){ .footer-top { flex-direction: row; justify-content: space-between; text-align: left; align-items: flex-start; } }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; letter-spacing: 0.1em; color: var(--ivory); }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline { font-size: 0.75rem; letter-spacing: 0.15em; color: var(--mid); margin-top: 0.3rem; }
+  .footer-contact p { font-size: 0.82rem; color: var(--mid); margin-bottom: 0.3rem; }
+  .footer-contact a { color: var(--gold); text-decoration: none; }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; text-align: center; font-size: 0.72rem; color: var(--mid); letter-spacing: 0.06em; }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* FLOATING BTN */
+  .float-btn {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 99;
+    padding: 0.9rem 1.6rem; background: transparent; color: var(--gold);
+    text-decoration: none; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    border: 1px solid var(--gold); opacity: 0; transform: translateY(10px);
+    transition: all 0.4s; pointer-events: none;
+    box-shadow: 0 0 20px rgba(201,162,39,0.15);
+  }
+  .float-btn.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+  .float-btn:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 30px rgba(201,162,39,0.3); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">Noir <span>✦</span> Beauty Lounge</a>
+  <span class="nav-phone">(312) 555-0100</span>
+  <a href="#" class="nav-cta">Reserve</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <p class="hero-eyebrow">Chicago · Est. 2015 · By Appointment</p>
+  <h1>The Art of<br><em>Refined</em> Beauty</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">Where luxury nail care meets editorial aesthetics. An intimate lounge designed for those who demand the extraordinary.</p>
+  <div class="hero-btns">
+    <a href="#" class="btn-primary">Reserve Your Visit</a>
+    <a href="#services" class="btn-secondary">Explore Services</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">Our Offerings</p>
+      <h2 class="section-title">The <em>Collection</em></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <div class="service-name">Manicure</div>
+        <p class="service-desc">A precise, unhurried manicure that attends to every detail — shaping, cuticle refinement, and a finish that speaks for itself.</p>
+        <div class="service-price">From $25</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">02</span>
+        <div class="service-name">Pedicure</div>
+        <p class="service-desc">An indulgent ritual for the feet — therapeutic soak, expert exfoliation, and a polished result worthy of the season's finest footwear.</p>
+        <div class="service-price">From $40</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">03</span>
+        <div class="service-name">Gel Nails</div>
+        <p class="service-desc">Enduring colour, flawlessly applied. Gel lacquer that maintains its brilliance for weeks without compromise.</p>
+        <div class="service-price">From $45</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">04</span>
+        <div class="service-name">Acrylic Nails</div>
+        <p class="service-desc">Sculpted with precision — extensions that provide both the strength and the silhouette you desire, tailored to perfection.</p>
+        <div class="service-price">From $55</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">05</span>
+        <div class="service-name">Nail Art</div>
+        <p class="service-desc">Bespoke artistry executed with meticulous care. From tonal minimalism to intricate editorial designs — each nail, a canvas.</p>
+        <div class="service-price">From $15</div>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">06</span>
+        <div class="service-name">Waxing</div>
+        <p class="service-desc">Efficient, comfortable, and precise. We use only premium wax formulas for a smooth result and lasting confidence.</p>
+        <div class="service-price">From $12</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text reveal">
+        <p class="section-eyebrow">The Lounge</p>
+        <h2 class="section-title">An <em>Atmosphere</em><br>Apart</h2>
+        <div class="gold-rule"></div>
+        <p>Noir Beauty Lounge was conceived as an antidote to the ordinary. We believe that beauty care should be an experience that begins the moment you step through the door — unhurried, immersive, and entirely devoted to you.</p>
+        <p>Our team of artisans hold the highest certifications and share an uncompromising commitment to craft. Each appointment is approached with the same precision and intention — regardless of service.</p>
+        <p>Discretion, refinement, and results that endure. That is the Noir standard.</p>
+        <a href="#">Reserve a Consultation →</a>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-visual-top">
+          <div class="about-visual-top-inner">
+            <p>"Luxury is in each detail."</p>
+          </div>
+        </div>
+        <div class="about-visual-bottom">
+          <div class="about-swatch"></div>
+          <div class="about-swatch"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">Reservations</p>
+      <h2 class="section-title">Hours & <em>Location</em></h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="hours-grid">
+      <div class="reveal">
+        <div class="hours-row"><span class="day">Monday – Friday</span><span class="time">9:00 am – 7:00 pm</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">9:00 am – 7:00 pm</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="time">10:00 am – 5:00 pm</span></div>
+        <div class="hours-row"><span class="day">Private Events</span><span class="time">By arrangement</span></div>
+      </div>
+      <div class="location-block reveal">
+        <p>123 Main Street<br>Chicago, Illinois 60601</p>
+        <p style="margin-top:1rem;"><a href="tel:3125550100">(312) 555-0100</a></p>
+        <div class="map-placeholder">Map Placeholder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Noir <span>✦</span> Beauty Lounge</div>
+        <div class="footer-tagline">Chicago's Premier Luxury Nail Experience</div>
+      </div>
+      <div class="footer-contact">
+        <p>123 Main Street, Chicago, IL 60601</p>
+        <p><a href="tel:3125550100">(312) 555-0100</a></p>
+        <p style="margin-top:0.8rem;">Mon–Sat 9am–7pm &nbsp;·&nbsp; Sun 10am–5pm</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Noir Beauty Lounge. All rights reserved. &nbsp;·&nbsp; Demo site by <a href="#">Corner Digital Group</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="float-btn" id="floatBtn">Reserve Now</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const floatBtn = document.getElementById('floatBtn');
+  window.addEventListener('scroll', () => floatBtn.classList.toggle('visible', window.scrollY > 300));
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

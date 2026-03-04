@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Star Nails & Spa — Glenview, IL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111118;
+    --card: #1A1A24;
+    --pink: #FF2D7A;
+    --teal: #00E5CC;
+    --white: #FFFFFF;
+    --dim: rgba(255,255,255,0.6);
+    --nav-h: 70px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+    background: rgba(17,17,24,0.97); backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; z-index: 1000;
+    border-bottom: 1px solid rgba(255,45,122,0.15);
+  }
+  .nav-logo {
+    text-decoration: none;
+    font-size: 1.1rem; font-weight: 800; color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .nav-logo em { color: var(--pink); font-style: normal; }
+  .nav-logo span { display: block; font-size: 0.6rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); }
+  .nav-phone { display: none; font-size: 0.86rem; color: var(--dim); font-weight: 500; }
+  .nav-cta {
+    background: var(--pink); color: var(--white);
+    padding: 10px 20px; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s;
+    box-shadow: 0 0 16px rgba(255,45,122,0.4);
+  }
+  .nav-cta:hover { background: var(--teal); color: var(--bg); box-shadow: 0 0 20px rgba(0,229,204,0.5); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex; align-items: center;
+    padding: calc(var(--nav-h) + 40px) 20px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-glow-1 {
+    position: absolute; top: -10%; left: -10%;
+    width: 50vw; height: 50vw;
+    background: radial-gradient(circle, rgba(255,45,122,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-glow-2 {
+    position: absolute; bottom: -10%; right: -5%;
+    width: 40vw; height: 40vw;
+    background: radial-gradient(circle, rgba(0,229,204,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 1100px; width: 100%; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,45,122,0.12);
+    border: 1px solid rgba(255,45,122,0.3);
+    color: var(--pink);
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; padding: 6px 14px;
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-size: clamp(3rem, 10vw, 7.5rem);
+    font-weight: 800; line-height: 1;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero-title em { color: var(--pink); font-style: normal; text-shadow: 0 0 30px rgba(255,45,122,0.6); }
+  .hero-tagline { font-size: clamp(0.95rem, 2.5vw, 1.15rem); color: var(--dim); max-width: 480px; margin-bottom: 44px; font-weight: 300; line-height: 1.7; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-pink {
+    background: var(--pink); color: var(--white);
+    padding: 15px 34px; text-decoration: none;
+    font-weight: 700; font-size: 0.88rem; letter-spacing: 0.06em;
+    text-transform: uppercase; transition: all 0.3s;
+    box-shadow: 0 4px 24px rgba(255,45,122,0.45);
+  }
+  .btn-pink:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(255,45,122,0.6); }
+  .btn-teal-out {
+    border: 1.5px solid var(--teal); color: var(--teal);
+    padding: 15px 34px; text-decoration: none;
+    font-weight: 700; font-size: 0.88rem; letter-spacing: 0.06em;
+    text-transform: uppercase; transition: all 0.3s; background: transparent;
+  }
+  .btn-teal-out:hover { background: var(--teal); color: var(--bg); box-shadow: 0 4px 24px rgba(0,229,204,0.4); transform: translateY(-3px); }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .sec-num { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; font-weight: 700; }
+  .sec-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.05; color: var(--white); margin-bottom: 14px; letter-spacing: -0.02em; }
+  .sec-sub { color: var(--dim); font-size: 0.92rem; font-weight: 300; max-width: 480px; line-height: 1.7; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--card); }
+  .svc-head { margin-bottom: 50px; }
+  .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.04); }
+  .svc-tile {
+    background: var(--card);
+    padding: 28px 24px;
+    position: relative;
+    transition: background 0.3s;
+    overflow: hidden;
+  }
+  .svc-tile:hover { background: rgba(255,45,122,0.06); }
+  .svc-tile::before { content: attr(data-n); position: absolute; bottom: 10px; right: 16px; font-size: 4rem; font-weight: 800; color: rgba(255,255,255,0.03); line-height: 1; }
+  .svc-tile-name { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .svc-tile-name::before { content: ''; display: inline-block; width: 12px; height: 2px; background: var(--pink); vertical-align: middle; margin-right: 8px; box-shadow: 0 0 6px var(--pink); }
+  .svc-tile-desc { font-size: 0.83rem; color: var(--dim); font-weight: 300; line-height: 1.6; }
+
+  /* ── SPECIALS ── */
+  #specials { background: var(--bg); }
+  .specials-row { display: flex; flex-direction: column; gap: 20px; margin-top: 44px; }
+  .spec-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 22px;
+    background: var(--card);
+    border-left: 3px solid var(--teal);
+    box-shadow: -4px 0 12px rgba(0,229,204,0.1);
+    transition: transform 0.3s;
+  }
+  .spec-item:hover { transform: translateX(6px); }
+  .spec-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .spec-text { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--card); }
+  .about-wrap { display: flex; flex-direction: column; gap: 44px; }
+  .about-body p { color: var(--dim); font-weight: 300; line-height: 1.85; margin-bottom: 16px; font-size: 0.97rem; }
+  .about-quote {
+    font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 700;
+    color: var(--white); padding: 24px; margin-top: 20px;
+    border-left: 3px solid var(--pink);
+    box-shadow: -4px 0 20px rgba(255,45,122,0.15);
+    line-height: 1.4;
+  }
+  .about-aside { display: flex; flex-direction: column; gap: 16px; }
+  .info-block { background: var(--bg); padding: 20px 22px; border-top: 2px solid var(--teal); }
+  .info-block h4 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; font-weight: 700; }
+  .info-block p, .info-block address { font-size: 0.87rem; color: var(--dim); font-style: normal; line-height: 1.7; font-weight: 300; }
+  .info-block a { color: var(--pink); text-decoration: none; }
+
+  /* ── HOURS ── */
+  #hours { background: var(--bg); }
+  .hours-card { background: var(--card); padding: 34px; max-width: 520px; border: 1px solid rgba(255,45,122,0.1); }
+  .h-row { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .h-row:last-of-type { border-bottom: none; }
+  .h-day { font-size: 0.87rem; font-weight: 600; color: var(--white); }
+  .h-time { font-size: 0.87rem; color: var(--dim); font-weight: 300; }
+  .map-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px; background: var(--pink); color: var(--white);
+    padding: 11px 22px; text-decoration: none;
+    font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em;
+    text-transform: uppercase; transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(255,45,122,0.35);
+  }
+  .map-btn:hover { background: var(--teal); color: var(--bg); box-shadow: 0 4px 20px rgba(0,229,204,0.4); }
+
+  /* ── FOOTER ── */
+  footer { background: #0A0A10; padding: 50px 20px 28px; color: rgba(255,255,255,0.45); }
+  .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 36px; }
+  .f-brand .name { font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+  .f-brand .name em { color: var(--pink); font-style: normal; }
+  .f-brand p { font-size: 0.82rem; line-height: 1.7; font-weight: 300; }
+  .f-col h5 { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; font-weight: 700; }
+  .f-col p, .f-col address { font-size: 0.82rem; line-height: 1.8; font-style: normal; font-weight: 300; }
+  .f-col a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .f-col a:hover { color: var(--pink); }
+  .footer-bar { max-width: 1100px; margin: 36px auto 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-size: 0.76rem; color: rgba(255,255,255,0.22); }
+
+  /* ── FLOAT CTA ── */
+  .float-cta {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--pink); color: var(--white);
+    padding: 13px 22px; text-decoration: none;
+    font-weight: 800; font-size: 0.82rem; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 24px rgba(255,45,122,0.5);
+    z-index: 999; transition: all 0.3s;
+    opacity: 0; pointer-events: none;
+  }
+  .float-cta.show { opacity: 1; pointer-events: auto; }
+  .float-cta:hover { background: var(--teal); color: var(--bg); box-shadow: 0 6px 28px rgba(0,229,204,0.5); transform: translateY(-2px); }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}
+
+  @media (min-width: 768px) {
+    nav { padding: 0 40px; }
+    section { padding: 100px 40px; }
+    .svc-grid { grid-template-columns: repeat(3, 1fr); }
+    .specials-row { flex-direction: row; flex-wrap: wrap; }
+    .spec-item { flex: 1; min-width: 200px; }
+    .about-wrap { flex-direction: row; }
+    .about-body { flex: 1.2; }
+    .about-aside { flex: 1; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    nav { padding: 0 60px; }
+    .nav-phone { display: block; }
+    section { padding: 120px 60px; }
+    .svc-grid { grid-template-columns: repeat(4, 1fr); }
+    .footer-grid { grid-template-columns: 1.6fr 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <span style="display:inline;"><em>Rock Star</em> Nails & Spa</span>
+    <span>Glenview, IL · Walk-Ins Welcome</span>
+  </a>
+  <a href="tel:8478340754" class="nav-phone">(847) 834-0754</a>
+  <a href="https://booksy.com" target="_blank" class="nav-cta">Book Now</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Walk-Ins Welcome · North Shore's Best</div>
+    <h1 class="hero-title"><em>Rock</em><br>Your Nails.</h1>
+    <p class="hero-tagline">The North Shore's boldest nail experience. Walk-ins always welcome.</p>
+    <div class="hero-btns">
+      <a href="https://booksy.com" target="_blank" class="btn-pink">Book an Appointment</a>
+      <a href="#services" class="btn-teal-out">See Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="svc-head reveal">
+      <p class="sec-num">// 01 Services</p>
+      <h2 class="sec-title">What we do best</h2>
+      <p class="sec-sub">Bold, precise, creative — from classics to one-of-a-kind nail art.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-tile reveal d1" data-n="01"><div class="svc-tile-name">Manicures</div><div class="svc-tile-desc">Classic and luxury hand treatments with expert care.</div></div>
+      <div class="svc-tile reveal d2" data-n="02"><div class="svc-tile-name">Pedicures</div><div class="svc-tile-desc">Spa foot treatments with hot stone option for full relaxation.</div></div>
+      <div class="svc-tile reveal d3" data-n="03"><div class="svc-tile-name">Dip Powder</div><div class="svc-tile-desc">Long-lasting chip-free color in bold shades.</div></div>
+      <div class="svc-tile reveal d4" data-n="04"><div class="svc-tile-name">Gel Nails</div><div class="svc-tile-desc">High-gloss gel color and extensions that last.</div></div>
+      <div class="svc-tile reveal d1" data-n="05"><div class="svc-tile-name">Acrylic Nails</div><div class="svc-tile-desc">Full sets and sculpted fills — shaped to perfection.</div></div>
+      <div class="svc-tile reveal d2" data-n="06"><div class="svc-tile-name">Nail Art</div><div class="svc-tile-desc">Bold custom designs — from geometric to full hand-painted art.</div></div>
+      <div class="svc-tile reveal d3" data-n="07"><div class="svc-tile-name">Fish Pedicure</div><div class="svc-tile-desc">Unique exfoliating fish pedicure experience — the North Shore's favorite.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="specials">
+  <div class="container">
+    <div class="reveal">
+      <p class="sec-num">// 02 Why Rock Star</p>
+      <h2 class="sec-title">The Rock Star treatment</h2>
+    </div>
+    <div class="specials-row">
+      <div class="spec-item reveal d1"><div class="spec-icon">⚡</div><div class="spec-text">Walk-Ins Always Welcome</div></div>
+      <div class="spec-item reveal d2"><div class="spec-icon">💳</div><div class="spec-text">Multiple Payment Options</div></div>
+      <div class="spec-item reveal d3"><div class="spec-icon">🏆</div><div class="spec-text">North Shore's Latest & Greatest</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-body reveal">
+        <p class="sec-num">// 03 About Us</p>
+        <h2 class="sec-title">The boldest nail<br>salon in the North Shore</h2>
+        <p>Rock Star Nails & Spa was built for people who want more. More creativity. More energy. More options. We're the nail salon that doesn't do "ordinary."</p>
+        <p>From fish pedicures to one-of-a-kind nail art, we bring innovation to every service. Walk in anytime — no appointment needed (though we take those too).</p>
+        <div class="about-quote">"The latest and greatest nail salon in the North Shore."</div>
+        <a href="https://booksy.com" target="_blank" class="btn-pink" style="display:inline-block;margin-top:28px;">Book Your Visit</a>
+      </div>
+      <div class="about-aside reveal d2">
+        <div class="info-block">
+          <h4>Find Us</h4>
+          <address>2311 Willow Rd<br>Glenview, IL 60025</address>
+        </div>
+        <div class="info-block">
+          <h4>Call Us</h4>
+          <p><a href="tel:8478340754">(847) 834-0754</a></p>
+        </div>
+        <div class="info-block">
+          <h4>Email Us</h4>
+          <p><a href="mailto:glenviewrockstarnails@gmail.com">glenviewrockstarnails@gmail.com</a></p>
+        </div>
+        <div class="info-block">
+          <h4>Hours Today</h4>
+          <p>Mon–Thu: 9:30 AM – 7:30 PM<br>Fri: 9 AM – 7:30 PM<br>Sat: 9 AM – 7 PM<br>Sun: 11 AM – 5 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:40px;">
+      <p class="sec-num">// 04 Hours</p>
+      <h2 class="sec-title">We're open late</h2>
+    </div>
+    <div class="hours-card reveal d1">
+      <div class="h-row"><span class="h-day">Monday – Thursday</span><span class="h-time">9:30 AM – 7:30 PM</span></div>
+      <div class="h-row"><span class="h-day">Friday</span><span class="h-time">9:00 AM – 7:30 PM</span></div>
+      <div class="h-row"><span class="h-day">Saturday</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Sunday</span><span class="h-time">11:00 AM – 5:00 PM</span></div>
+      <a href="https://maps.google.com/?q=2311+Willow+Rd+Glenview+IL" target="_blank" class="map-btn">📍 Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="name"><em>Rock Star</em> Nails & Spa</div>
+      <p>The North Shore's boldest nail experience. Walk-ins always welcome in Glenview, IL.</p>
+    </div>
+    <div class="f-col">
+      <h5>Hours</h5>
+      <p>Mon–Thu: 9:30–7:30 PM<br>Fri: 9:00–7:30 PM<br>Sat: 9:00–7:00 PM<br>Sun: 11:00–5:00 PM</p>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <address>
+        2311 Willow Rd, Glenview, IL 60025<br><br>
+        <a href="tel:8478340754">(847) 834-0754</a><br>
+        <a href="mailto:glenviewrockstarnails@gmail.com">glenviewrockstarnails@gmail.com</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bar">&copy; 2025 Rock Star Nails & Spa · Glenview, IL · Website by <a href="#" style="color:rgba(255,255,255,0.25);">Corner Digital Group</a></div>
+</footer>
+
+<a href="https://booksy.com" target="_blank" class="float-cta" id="floatBtn">Book Now ⚡</a>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}), {threshold:0.1});
+  reveals.forEach(r => obs.observe(r));
+  const f = document.getElementById('floatBtn');
+  window.addEventListener('scroll', () => f.classList.toggle('show', scrollY > 250));
+</script>
+</body>
+</html>

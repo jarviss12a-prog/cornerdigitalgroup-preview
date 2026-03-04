@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House of Slots | Berwyn, IL</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0a;--card:#141414;--text:#fff;--mid:#999;--gold:#D4AF37;--gold2:#F5D06B;--border:#222}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2rem;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:0.05em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:2px;background:#fff}
+@media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#0a0a0a;flex-direction:column;padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.hamburger{display:flex}}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;background:radial-gradient(ellipse at top,#1a1200 0%,#0a0a0a 60%);position:relative;overflow:hidden}
+.hero::before{content:'🎰';position:absolute;font-size:20rem;opacity:0.03;top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;padding:0.4rem 1.2rem;margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,6rem);font-weight:900;line-height:1.05;margin-bottom:1rem;background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 50%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.1rem;color:var(--mid);max-width:500px;margin:0 auto 2.5rem}
+.btn{display:inline-block;padding:1rem 2.8rem;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;text-decoration:none;font-size:0.85rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;transition:opacity 0.2s}
+.btn:hover{opacity:0.85}
+.btn-outline{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:#000;opacity:1}
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 0;background:var(--card)}
+.marquee{display:flex;gap:3rem;animation:marquee 20s linear infinite;white-space:nowrap}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee span{color:var(--gold);font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase}
+.marquee .dot{color:var(--border)}
+section{padding:5rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.section-label{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;margin-bottom:1rem}
+.section-sub{color:var(--mid);max-width:540px;margin-bottom:3rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+.feature-card{background:var(--card);border:1px solid var(--border);padding:2.5rem 2rem;transition:border-color 0.2s}
+.feature-card:hover{border-color:var(--gold)}
+.feature-icon{font-size:2.5rem;margin-bottom:1.2rem}
+.feature-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:0.5rem}
+.feature-card p{font-size:0.88rem;color:var(--mid);line-height:1.7}
+.games-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+@media(max-width:768px){.games-grid{grid-template-columns:1fr 1fr}}
+.game-card{background:var(--card);padding:3rem 1.5rem;text-align:center;transition:background 0.2s}
+.game-card:hover{background:#1a1a1a}
+.game-icon{font-size:3rem;margin-bottom:1rem;display:block}
+.game-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:0.4rem}
+.game-card p{font-size:0.82rem;color:var(--mid)}
+.cta-band{background:linear-gradient(135deg,#1a1200,#0d0d0d);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2rem;text-align:center}
+.cta-band h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1rem}
+.cta-band p{color:var(--mid);margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+@media(max-width:768px){.info-grid{grid-template-columns:1fr}}
+.info-block h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.2rem}
+.info-block p,.info-block li{color:var(--mid);font-size:0.9rem;margin-bottom:0.5rem}
+.info-block ul{list-style:none;padding:0}
+.info-block li::before{content:'◆ ';color:var(--gold);font-size:0.6rem;vertical-align:middle}
+.hours-row{display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid var(--border);font-size:0.9rem}
+.hours-row:last-child{border-bottom:none}
+iframe{width:100%;height:280px;border:none;border:1px solid var(--border);margin-top:1rem}
+footer{background:#050505;border-top:1px solid var(--border);text-align:center;padding:2rem;font-size:0.8rem;color:#555}
+footer span{color:var(--gold)}
+.age-note{display:inline-block;background:var(--card);border:1px solid var(--border);color:var(--mid);font-size:0.75rem;padding:0.3rem 0.8rem;letter-spacing:0.1em;margin-top:1.5rem}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">House of Slots</a>
+  <button class="hamburger" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#games">Games</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Berwyn's Premier Gaming Destination</div>
+  <h1>House of<br>Slots</h1>
+  <p>The finest video gaming experience in Berwyn — machines, drinks, and good vibes all in one place.</p>
+  <a href="#contact" class="btn">Find Us</a>
+  <div class="age-note">🔞 Must be 21+ to play</div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Video Slots</span><span class="dot">◆</span><span>Video Poker</span><span class="dot">◆</span><span>Drinks & Snacks</span><span class="dot">◆</span><span>21+ Gaming</span><span class="dot">◆</span><span>Berwyn IL</span><span class="dot">◆</span>
+    <span>Video Slots</span><span class="dot">◆</span><span>Video Poker</span><span class="dot">◆</span><span>Drinks & Snacks</span><span class="dot">◆</span><span>21+ Gaming</span><span class="dot">◆</span><span>Berwyn IL</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <p class="section-label">Welcome</p>
+    <h2 class="section-title">Your Lucky Place<br>in Berwyn</h2>
+    <p class="section-sub">House of Slots is Berwyn's go-to gaming parlor — a relaxed, friendly space where you can play the latest video gaming terminals, grab a drink, and enjoy yourself.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">🎰</div><h3>Latest Machines</h3><p>Top-of-the-line video gaming terminals with the best slots and poker games around.</p></div>
+      <div class="feature-card"><div class="feature-icon">🍺</div><h3>Drinks & Snacks</h3><p>Cold drinks and snacks available to keep you comfortable while you play.</p></div>
+      <div class="feature-card"><div class="feature-icon">🛡️</div><h3>Safe & Licensed</h3><p>Fully licensed by the Illinois Gaming Board. Clean, safe, and welcoming environment.</p></div>
+      <div class="feature-card"><div class="feature-icon">🌟</div><h3>Friendly Staff</h3><p>Our team is here to make every visit enjoyable. Walk in and feel right at home.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="games" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Games</h2>
+    <p class="section-sub">From classic reels to video poker — something for every kind of player.</p>
+    <div class="games-grid">
+      <div class="game-card"><span class="game-icon">🎰</span><h3>Video Slots</h3><p>Classic and modern slot machines</p></div>
+      <div class="game-card"><span class="game-icon">🃏</span><h3>Video Poker</h3><p>Multiple poker game variations</p></div>
+      <div class="game-card"><span class="game-icon">💎</span><h3>Progressive</h3><p>Growing jackpot opportunities</p></div>
+      <div class="game-card"><span class="game-icon">🎲</span><h3>Multi-Game</h3><p>Switch between your favorites</p></div>
+      <div class="game-card"><span class="game-icon">🍒</span><h3>Classic Reels</h3><p>Old-school fruit machine fun</p></div>
+      <div class="game-card"><span class="game-icon">⭐</span><h3>New Arrivals</h3><p>Always adding fresh machines</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container">
+    <h2>Ready to Play?</h2>
+    <p>Walk in anytime during our hours. 21+ with valid ID required. Good luck!</p>
+    <a href="#contact" class="btn">Get Directions</a>
+  </div>
+</div>
+
+<section id="hours">
+  <div class="container">
+    <p class="section-label">Visit Us</p>
+    <h2 class="section-title">Hours & Location</h2>
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Hours</h3>
+        <div class="hours-row"><span>Monday – Friday</span><span>10:00 AM – 2:00 AM</span></div>
+        <div class="hours-row"><span>Saturday</span><span>10:00 AM – 3:00 AM</span></div>
+        <div class="hours-row"><span>Sunday</span><span>11:00 AM – 2:00 AM</span></div>
+        <br>
+        <ul>
+          <li>Walk-ins welcome</li>
+          <li>Must be 21+ with valid ID</li>
+          <li>Illinois Gaming Board licensed</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Find Us</h3>
+        <p>📍 6823 Stanley Ave, Berwyn, IL 60402</p>
+        <p>📞 <a href="tel:" style="color:var(--gold);text-decoration:none">Call for info</a></p>
+        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFmBWY&q=6823+Stanley+Ave,Berwyn,IL+60402" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>© 2025 <span>House of Slots</span> · 6823 Stanley Ave, Berwyn, IL 60402 · Must be 21+ to play · Illinois Gaming Board Licensed</p>
+</footer>
+</body>
+</html>
